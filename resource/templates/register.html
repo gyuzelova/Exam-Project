@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish World</title>
+    <link rel="stylesheet" href="register.css">
+
+</head>
+<body>
+<header>
+    <article class="logo-container">
+        <img class="logo-icon" src="logo-green.png" alt="fish-ico">
+    </article>
+    <nav>
+        <div>
+            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="/catalog">Catalog</a>
+        </div>
+        <div class="user">
+            <a class="nav-link" href="/create">Create Post</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </div>
+        <div class="gest">
+            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/login">Login</a>
+        </div>
+    </nav>
+</header>
+
+<main class="register">
+    <form id="register_form" class="form_class">
+        <div class="form_div">
+            <label>Register:</label>
+            <input class="field_class" name="register_txt" type="text" placeholder="email" >
+            <label>Password:</label>
+            <input id="pass" class="field_class" name="password_txt" type="password" placeholder="password">
+            <label>Pepeat Password:</label>
+            <input id="pass" class="field_class" name="password_txt" type="rePassword" placeholder="password">
+            <button class="submit_class" type="submit">register</button>
+        </div>
+        <div class="info_div">
+            <p>Already registered? <a href="/login">Login</a></p>
+        </div>
+    </form>
+</main>
+
+    
+</body>
+<footer>
+    <p>@FishWorld</p>
+</footer>
+</html>
