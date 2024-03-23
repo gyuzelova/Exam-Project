@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish World</title>
+    <link rel="stylesheet" href="register.css">
+
+</head>
+
+<body>
+    <header>
+        <article class="logo-container">
+            <img class="logo-icon" src="logo-green.png" alt="fish-ico">
+        </article>
+        <nav>
+            <div>
+                <a class="nav-link" href="">Home</a>
+                <a class="nav-link" href="/catalog">Catalog</a>
+            </div>
+            <div class="user">
+                <a class="nav-link" href="/create">Create Post</a>
+                <a class="nav-link" href="/logout">Logout</a>
+            </div>
+            <div class="gest">
+                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link" href="/login">Login</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="register">
+
+        <form id="register_form" class="form_class">
+            <h1>Create Post</h1>
+
+            <div class="form_div">
+                <label>Fish Name:</label>
+                <input class="field_class" name="name_txt" type="text" placeholder="name">
+
+                <label>Image</label>
+                <input id="img-url" class="field_class" type="text" name="image"  placeholder="Image" />
+                
+                <label>Fish Type:</label>
+                <input  class="field_class" name="type_txt" placeholder="type">
+
+                <label>Description:</label>
+                <textarea  class="field_class" name="description_txt" placeholder="description"></textarea>
+                <button class="submit_class" type="submit">Create</button>
+
+            </div>
+
+        </form>
+    </main>
+
+
+</body>
+<footer>
+    <p>@FishWorld</p>
+</footer>
+
+</html>
