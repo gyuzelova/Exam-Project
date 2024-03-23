@@ -30,14 +30,14 @@
     </nav>
 </header>
 
-<main class="login">
-    <form id="login_form" class="form_class" action="login/login-access.php" method="post">
+<main class="form">
+    <form  class="form_class" action="login/login-access.php" method="post">
         <div class="form_div">
             <label>Login:</label>
             <input class="field_class" name="login_txt" type="text" placeholder="email" autofocus>
             <label>Password:</label>
-            <input id="pass" class="field_class" name="password_txt" type="password" placeholder="password">
-            <button class="submit_class" type="submit" form="login_form" onclick="return validarLogin()">Login</button>
+            <input id="password" class="field_class" name="password_txt" type="password" placeholder="password">
+            <button class="submit_class" type="submit" form="login_form" >Login</button>
         </div>
         <div class="info_div">
             <p>Not registered? <a href="/register">Create an account</a></p>
