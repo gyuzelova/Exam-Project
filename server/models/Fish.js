@@ -11,7 +11,7 @@ const fishSchema = new mongoose.Schema({
         required: [true, 'Image is required!'],
         match: /^https?:\/\//,
     },
-    location: {
+    type: {
         type: String,
         required: [true, 'Location is required!'],
         minLength: [5, 'Location should be longer than 5 characters!'],
