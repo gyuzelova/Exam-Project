@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish World</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+<body>
+<header>
+    <article class="logo-container">
+        <img class="logo-icon" src="logo-green.png" alt="fish-ico">
+    </article>
+    <nav>
+        <div>
+            <a class="nav-link" href="">Home</a>
+            <a class="nav-link" href="/catalog">Catalog</a>
+        </div>
+        <div class="user">
+            <a class="nav-link" href="/create">Create Post</a>
+            <a class="nav-link" href="/login">Login</a>
+        </div>
+        <div class="gest">
+            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main class="login">
+    <form id="login_form" class="form_class" action="login/login-access.php" method="post">
+        <div class="form_div">
+            <label>Login:</label>
+            <input class="field_class" name="login_txt" type="text" placeholder="email" autofocus>
+            <label>Password:</label>
+            <input id="pass" class="field_class" name="password_txt" type="password" placeholder="password">
+            <button class="submit_class" type="submit" form="login_form" onclick="return validarLogin()">Login</button>
+        </div>
+        <div class="info_div">
+            <p>Not registered? <a href="/register">Create an account</a></p>
+        </div>
+    </form>
+</main>
+
+    
+</body>
+<footer>
+    <p>@FishWorld</p>
+</footer>
+</html>
