@@ -65,38 +65,63 @@ nav a {
 }
 
 
-.item-view {
+.details-wrapper {
     background-color: rgba(255, 255, 255, 0.333);
-    display:inline-flex;
-   
-
+    display:flexbox; 
+    width: auto;
+    height: auto;
+    border-radius: 30px;
+    
 }
 
-aside .aside-item {
+.insidei-wrap {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.detail-item{
     display: inline-block;
-    width: 400px;;
+    width: 300px;
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: white;
     border-radius: 30px;
     vertical-align: middle;
     
+    
 }
 
-aside .aside-item img {
-    float: left;
+.detail-item img {
     border: 2px solid rgba(169, 152, 198, 0.781);
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    margin: 10px;
+    width: 190px;
+    height: 170px;
+    margin: 16%;
+    margin-top: 5%;
+    
+}
+.detail-item p {
+    text-align: justify;
+    margin-left: 5%;
+    margin-top: 0%;
+    margin-bottom: 10%;
 }
 
-aside .aside-item a {
+.owner-btn{
+   display:inline-block;
+    justify-content: space-between;
+}
+
+
+.like-btn,
+.edit-btn,
+.delete-btn{
     border: 5em;
     cursor: pointer;
     outline: none;
-    font-size: 16px;
+    font-size: 12px;
     transform: translate(0);
     background-image: linear-gradient(45deg, #1c8fe1, #585045);
     padding: 0.7em 2em;
@@ -104,57 +129,21 @@ aside .aside-item a {
     box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
     color: white;
     width: 100px;
-    margin-bottom: 7px;
-    margin-left: 50%;
+    margin-bottom: 10px;
+    margin-left: 100px;
     text-decoration: none;
-    
+  
 }
 
-aside .aside-item p {
-    text-align: left;
+
+.detail-item p {
+    text-align: justify;
     font-weight: bold;
-}
-
-
-#home {
-    font-style: oblique;
-    color: rgb(5, 16, 78);
-    text-align: center;
-}
-
-.main h1 {
-    font-size: 35px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-h3 {
-    font-size: 20px;
-    margin-top: 2px;
-
-}
-
-.home-info {
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.333);
-    width: 90%;
-    height:auto;
-    padding: 1%;
-    border-radius: 20px;
-    margin-left: 1%;
-    margin-right: 2%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-.item-info {
+    margin-bottom: 4%;
     margin-left: 3%;
-    margin-right: 2%;
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-right: 3%;
+   
 }
-.home-info h3 {
-    font-family:serif
-    }
 
     .errorContainer {
         position: fixed;
@@ -179,4 +168,4 @@ h3 {
         height: 15px;
         border-radius: 20px;
         
-      }   
+      } 

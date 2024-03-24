@@ -84,7 +84,7 @@ nav a {
 .detail-item{
     display: inline-block;
     width: 300px;
-    height: auto;
+    height: 400px;
     margin-bottom: 10px;
     background-color: white;
     border-radius: 30px;
@@ -102,47 +102,30 @@ nav a {
     margin-top: 5%;
     
 }
+
+
 .detail-item p {
     text-align: justify;
+    font-weight: bold;
     margin-left: 5%;
-    margin-top: 0%;
-    margin-bottom: 10%;
+    margin-top: 4%;
+    margin-bottom: 7%;
+   
 }
-
-.owner-btn{
-   display:inline-block;
-    justify-content: space-between;
-}
-
-
-.like-btn,
-.edit-btn,
-.delete-btn{
+.detail-item a {
     border: 5em;
     cursor: pointer;
     outline: none;
-    font-size: 12px;
+    font-size: 16px;
     transform: translate(0);
     background-image: linear-gradient(45deg, #1c8fe1, #585045);
     padding: 0.7em 2em;
     border-radius: 65px;
     box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
     color: white;
-    width: 100px;
-    margin-bottom: 10px;
-    margin-left: 100px;
+    width: auto;
+    margin-left: 30%;
     text-decoration: none;
-  
-}
-
-
-.detail-item p {
-    text-align: justify;
-    font-weight: bold;
-    margin-bottom: 4%;
-    margin-left: 3%;
-    margin-right: 3%;
-   
 }
 
     .errorContainer {
