@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const { SECRET } = require('./config');
+const config = require('./config/config');
 
 const port = 3000;
 const nameDb = 'fish-world';
@@ -13,11 +14,15 @@ const routes = require('./routes');
 
 const app = express();
 
-app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(SECRET));
 app.use(auth); 
+app.use(cors({
+    origin: config.origin,
+    credentials: true
+  }));
 
 
 app.use(routes);
