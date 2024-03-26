@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { AddFishComponent } from './add-fish/add-fish.component';
 import { DetailsComponent } from './details/details.component';
+import { FishRoutingModule } from './fish-routing.module';
+import { AppRoutingModule } from '../app-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -12,10 +15,15 @@ import { DetailsComponent } from './details/details.component';
     HomeComponent,
     CatalogComponent,
     AddFishComponent,
-    DetailsComponent
+    DetailsComponent,
+  
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule, RouterModule,
+  ], 
+  exports: [ HomeComponent,
+    CatalogComponent,
+    AddFishComponent,
+    DetailsComponent]
 })
 export class FishModule { }
