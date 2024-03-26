@@ -1,0 +1,121 @@
+.item-view {
+    background-color: rgba(255, 255, 255, 0.333);
+    display: inline-flex;
+
+
+}
+
+aside .aside-item {
+    display: inline-block;
+    width: 400px;
+    height: auto;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 30px;
+    vertical-align: middle;
+    padding: auto;
+    padding-top: 2%;
+    padding-bottom: 5%;
+
+}
+
+aside .aside-item img {
+    float: left;
+    border: 2px solid rgba(169, 152, 198, 0.781);
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+aside .aside-item a {
+    border: 4em;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    transform: translate(0);
+    background-image: linear-gradient(45deg, #1c8fe1, #585045);
+    padding: 0.7em 2em;
+    border-radius: 65px;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+    color: white;
+    width: 100px;
+    margin-left: 40%;
+    text-decoration: none;
+
+}
+
+aside .aside-item p {
+    margin-top: 40px;
+    text-align: left;
+    font-weight: bold;
+
+}
+
+
+#home {
+    font-style: oblique;
+    color: rgb(5, 16, 78);
+    text-align: center;
+}
+
+.main h1 {
+    font-size: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+h3 {
+    font-size: 20px;
+    margin-top: 2px;
+
+}
+
+.home-info {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.333);
+    width: 90%;
+    height: auto;
+    padding: 1%;
+    border-radius: 20px;
+    margin-left: 1%;
+    margin-right: 4%;
+    margin-top: 9%;
+    margin-bottom: 11%;
+}
+
+.item-info {
+    margin-left: 3%;
+    margin-right: 2%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.home-info h3 {
+    font-family: serif
+}
+
+.errorContainer {
+    position: fixed;
+    background: none;
+    right: 20px;
+    min-width: 80px;
+    display: block;
+    z-index: 11111;
+    top: 100px;
+    text-align: center;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    height: 30px;
+    width: 280px;
+
+}
+
+.errorContainer>p {
+    background: linear-gradient(45deg, #15639a, #585045);
+    font-size: 20px;
+    padding: 20px;
+    height: 15px;
+    border-radius: 20px;
+
+}
