@@ -1,1 +1,20 @@
-<p>header works!</p>
+<header>
+    <article class="logo-container">
+        <img class="logo-icon" src="assets/img/logo-green.png" alt="fish-ico">
+    </article>
+    <nav>
+        <div>
+            <a class="nav-link" routerLink="">Home</a>
+            <a class="nav-link" routerLink="/catalog">Catalog</a>
+        </div>
+        <div *ngIf="!isLoggedIn" class="user" >
+            <a class="nav-link" routerLink="/create">Create Post</a>
+            <a (click)="logout()" routerLink="nav-link" href="/logout">Logout</a>
+           
+        </div>
+        <div *ngIf="!isLoggedIn" class="gest" >
+            <a class="nav-link" routerLink="/register">Register</a>
+            <a class="nav-link" routerLink="/login">Login</a>
+        </div>
+    </nav>
+</header>
