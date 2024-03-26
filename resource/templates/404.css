@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    display:grid;
+    overflow:visible;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/000/127/780/original/free-seabed-vector.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.logo-icon {
+    width: 20%;
+    height: 90%;
+    margin-left: 10px;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px 2px 2px;
+    background-image: linear-gradient(360deg, #124e78, #e8b77e);
+    margin: 10px 10px;
+    height: 60px;
+    
+}
+header a:hover {
+    color: rgb(202, 203, 204);
+}
+
+header article {
+    display: flex;
+}
+
+
+footer {
+    background-image: linear-gradient(181deg, #124e78, #e8b77e);
+    margin-top: 1em;
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    padding-bottom:30px;  
+     
+}
+
+footer p {
+    margin-left:50%;
+    font-size: bold;
+}
+
+nav {
+    height: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-top: 2px;
+}
+
+nav a {
+    font-size: 1.5rem;
+    color: rgb(5, 16, 78);
+    font-weight: 400;
+    padding: 0 10px;
+    cursor: pointer;
+}
+main div {
+    display: inline-block;
+}
+
+.img-not-found img{
+   display:flex;
+    width: 60%;
+    height: 90%;
+    margin-left: 60%;
+    margin-top: 10%;
+}
+
+.content-not-found {
+    font-family:'Courier New', Courier, monospace;
+    font-size: large;
+    font-style:italic;
+    color:#f4efef;
+    margin-left: 20%;
+   
+}
+main p {
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size:x-large;
+    font-style: oblique;
+    color:#f4efef;
+    margin-left: 45%; 
+    margin-bottom: 10%; 
+}
+main div a {
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+color:#f4efef;
+}

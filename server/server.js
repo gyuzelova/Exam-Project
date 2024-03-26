@@ -14,15 +14,15 @@ const routes = require('./routes');
 
 const app = express();
 
-
+app.use(cors({
+  origin: config.origin,
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser(SECRET));
 app.use(auth); 
-app.use(cors({
-    origin: config.origin,
-    credentials: true
-  }));
+
 
 
 app.use(routes);
