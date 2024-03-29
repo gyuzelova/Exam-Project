@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
         minLength: [4, 'Password too short'],
         
     },
+    createPost: [{
+        type: mongoose.Types.ObjectId,
+        ref:'Fish'
+    }]
 });
 
 

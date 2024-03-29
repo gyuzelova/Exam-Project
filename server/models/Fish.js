@@ -26,6 +26,10 @@ const fishSchema = new mongoose.Schema({
     },
     likedList: [{
     }],
+    owners: [{
+        type: mongoose.Types.ObjectId,
+        ref: 'User'
+    }],
  
 },
 { timestamps: true});

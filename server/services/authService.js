@@ -22,7 +22,8 @@ exports.register = async (userData) => {
         email: userDb.email,
     };
     const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
-    return token;
+     console.log(token);
+    return {userDb, token};
 };
 
 
@@ -50,7 +51,13 @@ exports.login = async (email, password) => {
 const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
 
 // return token
-return token;
+return {user, token};
 
   
 }
+
+// exports.profile = async (userData) => {
+//     const id = userData._id;
+//     const user = await User.findById(id);
+//     return user
+// }
