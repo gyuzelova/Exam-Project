@@ -1,20 +1,56 @@
 <main class="form">
-    <form id="register_form" class="form_class">
+  
+    <form id="register_form" class="form_class" [formGroup]="form" (ngSubmit)="register()" >
         <div class="form_div">
             <label>Register:</label>
 
-            <input class="field_class" name="register_txt" 
-            type="text" placeholder="email" >
-            
-            <label>Password:</label>
-            <input id="pass" class="field_class" name="password_txt" 
-            type="password" placeholder="password">
+            <input class="field_class" 
+            name="register_txt" 
+            type="text" 
+            placeholder="email" 
+            formControlName="email"
+            />
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                  Email is required!
+                </p>
+                <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+                  Email is not valid!
+                </p>
+              </ng-container>
 
-            <label>Pepeat Password:</label>
-            <input id="pass" class="field_class" name="password_txt" 
-            type="rePassword" placeholder="password">
+            <ng-container formGroupName="passGroup">
+                <label>Password:</label>
+                <input id="pass" 
+                class="field_class" 
+                name="password_txt" 
+                type="password" 
+                placeholder="password"
+                formControlName="password"
+                />
+    
+                <label>Repeat Password:</label>
+                <input id="pass" 
+                class="field_class" 
+                name="password_txt" 
+                type="password" 
+                placeholder="password"
+                formControlName="rePassword"
+                />
 
-            <button class="submit_class" type="submit">Register</button>
+                <ng-container *ngIf="passGroup?.get('rePassword')?.touched">
+                    <p
+                      class="error"
+                      *ngIf="passGroup?.errors?.['matchPasswordsValidator'] || 
+                      passGroup?.get('rePassword')?.errors?.['required']"
+                    >
+                      Passwords does`t match!
+                    </p>
+                  </ng-container>
+            </ng-container>
+           
+
+            <button [disabled]="form.invalid" class="submit_class" type="submit">Register</button>
         </div>
         <div class="info_div">
             <p>Already registered? <a href="/login">Login</a></p>
