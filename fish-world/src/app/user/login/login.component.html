@@ -1,14 +1,42 @@
 <main class="form">
-    <div class="errorContainer">
-        <p>Error!</p>
-    </div>
-    <form  class="form_class" action="login/login-access.php" method="post">
+  <!-- <div *ngIf="errorMsg" class="errorContainer">
+    <p>{{errorMsg}}</p>
+</div> -->
+    <form  class="form_class" [formGroup]="form" (ngSubmit)="login()">
         <div class="form_div">
             <label>Login:</label>
-            <input class="field_class" name="login_txt" type="text" placeholder="email" autofocus>
+            <input class="field_class" 
+            name="login_txt" 
+            type="text" 
+            placeholder="email" 
+            autofocus
+            formControlName="email"
+            />
+            <ng-container *ngIf="form.get('email')?.touched">
+                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                  Email is required!
+                </p>
+                <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+                  Email is not valid!
+                </p>
+              </ng-container>
+
             <label>Password:</label>
-            <input id="password" class="field_class" name="password_txt" type="password" placeholder="password">
-            <button class="submit_class" type="submit" form="login_form" >Login</button>
+            <input id="password" 
+            class="field_class" 
+            name="password_txt" 
+            type="password" 
+            placeholder="password"
+            formControlName="password"
+            />
+
+            <ng-container *ngIf="form.get('password')?.touched">
+                <p class="error" *ngIf="form.get('password')?.errors?.['password']">
+                  Email is required!
+                </p>
+              </ng-container>
+
+            <button  [disabled]="form.invalid" class="submit_class" type="submit" >Login</button>
         </div>
         <div class="info_div">
             <p>Not registered? <a routerLink="/register">Create an account</a></p>
