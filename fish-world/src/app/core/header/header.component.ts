@@ -12,12 +12,19 @@ export class HeaderComponent {
   constructor(private router: Router, 
   private userService: UserService) {}
 
-  get isLoggedIn(): boolean {
+  get isLoggedIn(): boolean { 
   return this.userService.isLogged;
 }
 
 logout(): void {
-  this.userService.logout();
-  this.router.navigate(['home'])
+  this.userService.logout().subscribe({
+next: () => {
+  this.router.navigate(['/home']);
+},
+error: () => {
+  this.router.navigate(['/login']);
+}
+  });
+  
 }
 }
