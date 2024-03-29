@@ -1,23 +1,27 @@
 const router = require('express').Router();
 const authService = require('../services/authService');
 const { getErrorMessage, validate } = require('../utils/errorUtils');
-const {isAuth, isGuest} = require('../middlewares/authMiddleware')
+const {isAuth, isGuest} = require('../middlewares/authMiddleware');
+const User = require('../models/User.js');
 
 
-router.get('/register', isGuest, (req, res) => {
-    res.render('register');
-});
+// router.get('/register', isGuest, (req, res) => {
+//     res.render('register');
+// });
 
 router.post('/register', isGuest,  async (req, res) => {
     const userData = req.body;
-   
+
+    console.log(userData);
+    console.log(userData.password);
+  let errorMessage = ''
 if (!userData.password || userData.password ==="" || !userData.rePassword || userData.rePassword ==="") {
-    res.render('register', { error: 'Password is required!' })
+    throw new Error ('Password is required!' )
   
 } else if (userData.password !== userData.rePassword){
-    res.render('register', { error: 'Password missmatch!' })
+    throw new Error ('Password missmatch!' )
 } else if(userData.password.length < 4){
-    res.render('register', { error: 'Password too short' })
+    throw new Error('Password too short')
 } else {
     let userDTO = {
         "email": userData.email,
@@ -26,44 +30,53 @@ if (!userData.password || userData.password ==="" || !userData.rePassword || use
     console.log({'DTO body': userDTO});
     
     try {
-       const token = await authService.register(userDTO);
-       res.cookie('auth', token);
-
-        res.redirect('/');
+       const {user, token} = await authService.register(userDTO);
+      console.log(user, token);
+res.status(200).cookie('auth', token).send(user);
+      
     } catch (err) {
-        res.render('register', { ...userData, error: getErrorMessage(err) })
+        res.status(400).semd(err.message || err)
     }
 }
 
    
 });
 
-router.get('/login', isGuest, (req, res) => {
-    res.render('login');
+router.get('/profile', (req, res, next) => {
+    const { _id: userId } = req.user? req.user : [];
+    console.log(req.user);
+    console.log({ _id: userId });
+    User.findOne({ _id: userId })
+    .then(user => { res.status(200).json(user) })
+    .catch(next);
 });
 
-router.post('/login', isGuest, async (req, res) => {
+router.post('/login', isGuest, async (req, res, next) => {
     const { email, password } = req.body;
+    console.log(email, password);
 if (!password || password === '') {
-    res.render('login',  { error: 'Password is required!'});
+    throw new Error ('Password is required!');
 } else {
     try {
-        const token = await authService.login(email, password);
+        const {user, token} = await authService.login(email, password);
 
-        res.cookie('auth', token);
-
-        res.redirect('/');
+        res.status(200).cookie('auth', token).send(user);
     } catch (err) {
-        res.render('login', { error: getErrorMessage(err), email });
+        res.status(400).send(err.message || err);
     }  
 }
   
 });
 
-router.get('/logout', isAuth, (req, res) => {
-    res.clearCookie('auth');
 
-    res.redirect('/');
+router.post('/logout', isAuth, (req, res) => {
+    const token = req.cookies['auth'];
+    console.log('logout server');
+    const user = undefined;
+    console.log(req.token);
+    res.status(204).clearCookie('auth').send(user);
+    
+
 });
 
 module.exports = router;
