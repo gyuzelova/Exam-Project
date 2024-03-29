@@ -19,11 +19,8 @@ import { RouterModule } from '@angular/router';
   
   ],
   imports: [
-    CommonModule, RouterModule,
+    CommonModule, FishRoutingModule,
   ], 
-  exports: [ HomeComponent,
-    CatalogComponent,
-    AddFishComponent,
-    DetailsComponent]
+  exports: [ ]
 })
 export class FishModule { }
