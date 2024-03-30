@@ -9,7 +9,7 @@ const routes: Routes = [
     {path: 'home', component:HomeComponent},
     {path: 'catalog', component:CatalogComponent},
     {path: 'create', component: AddFishComponent},
-    {path: 'details', component: DetailsComponent},
+    {path: ':fishId', component: DetailsComponent},
     
 
 ];

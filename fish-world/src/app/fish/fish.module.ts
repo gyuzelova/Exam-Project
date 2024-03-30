@@ -5,8 +5,9 @@ import { CatalogComponent } from './catalog/catalog.component';
 import { AddFishComponent } from './add-fish/add-fish.component';
 import { DetailsComponent } from './details/details.component';
 import { FishRoutingModule } from './fish-routing.module';
-import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -19,8 +20,13 @@ import { RouterModule } from '@angular/router';
   
   ],
   imports: [
-    CommonModule, FishRoutingModule,
+    CommonModule, 
+    FishRoutingModule,
+     RouterModule,  
+     FormsModule,
+    ReactiveFormsModule, 
+    SharedModule
   ], 
-  exports: [ ]
+  exports: []
 })
 export class FishModule { }

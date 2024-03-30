@@ -5,16 +5,17 @@ const { getErrorMessage, validate } = require('../utils/errorUtils');
 
 
 
-router.post('/create', isAuth, async (req, res, next) => {
+router.post('/create', async (req, res, next) => {
     const fishData = req.body;
-
+    console.log(fishData);
+    console.log(req.user);
     try {
         const postFish = await fishService.create(req.user._id, fishData);
-
+console.log(postFish);
         res.status(200).json(postFish)
     } catch (err) {
-
-        res.status(400).json({ 'Error': err.message })
+console.log(err);
+        res.status(200).send(err.message || err)
     }
 
 });
@@ -49,21 +50,18 @@ router.post('/:fishId/edit', isAuth, async (req, res) => {
 
         res.status(200).json(fish)
     } catch (err) {
-        res.status(400).json({ 'Error': err.message })
+        res.status(200).send(err.message || err)
     }
 
 });
 
 router.get('/:fishId/delete', isAuth, async (req, res) => {
     try {
-      const fish =   await fishService.delete(req.params.fishId); 
-      res.status(200).json(fish)
+        const fish = await fishService.delete(req.params.fishId);
+        res.status(200).json(fish)
     } catch (error) {
-        res.status(400).json({ 'Error': err.message })
+        res.status(200).send(err.message || err)
     }
-    
-
-  
 });
 
 

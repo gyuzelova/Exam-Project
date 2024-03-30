@@ -1,20 +1,38 @@
 <main class="create">
 
-    <form  class="form_class">
+    <form  class="form_class"[formGroup]="form" (ngSubmit)="add()">
         <h1>Create Post</h1>
 
         <div class="form_div">
             <label>Fish Name:</label>
-            <input class="field_class" name="name_txt" type="text" placeholder="name">
+            <input class="field_class" 
+            name="name" 
+            type="text"
+            placeholder="name"
+            formControlName="name"
+            />
 
             <label>Image</label>
-            <input id="img-url" class="field_class" type="text" name="image"  placeholder="Image" />
+            <input id="img-url"
+             class="field_class" 
+             type="text" 
+             name="image"  
+             placeholder="Image" 
+             formControlName="image"/>
             
             <label>Fish Type:</label>
-            <input  class="field_class" name="type_txt" placeholder="type">
+            <input  class="field_class" 
+            name="type" 
+            placeholder="type"
+            formControlName="type"
+            />
 
             <label>Description:</label>
-            <textarea  class="field_class" name="description_txt" placeholder="description"></textarea>
+            <textarea  class="field_class" 
+            name="description" 
+            placeholder="description"
+            formControlName="description"
+            ></textarea>
             <button class="submit_class" type="submit">Create</button>
 
         </div>
