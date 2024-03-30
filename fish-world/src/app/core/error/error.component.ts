@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ErrorService } from './error.service';
 
 
@@ -9,12 +9,19 @@ import { ErrorService } from './error.service';
 })
 export class ErrorComponent implements OnInit {
   errorMsg = '';
+ 
+ 
 
-  constructor(private errorService: ErrorService){}
+  constructor(private errorService: ErrorService) { }
 
-ngOnInit():void {
- this.errorService.apiError$.subscribe((err: any) => {
-      this.errorMsg = err?.error || '';
+  ngOnInit(): void {
+    this.errorService.apiError$.subscribe((err: any) => {
+      this.errorMsg = err?.error.text || '';
     });
-}
+   
+    setTimeout(()=>{
+      this.errorMsg= ''}, 5000);
+  }
+
+
 }
