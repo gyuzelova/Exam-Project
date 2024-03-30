@@ -13,9 +13,9 @@ const fishSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        required: [true, 'Location is required!'],
-        minLength: [5, 'Location should be longer than 5 characters!'],
-        maxLength: [15, 'Location should be shorts than 15 characters!'],
+        required: [true, 'Type is required!'],
+        minLength: [3, 'Type should be longer than 3 characters!'],
+        maxLength: [20, 'Type should be shorts than 20 characters!'],
        // match: /^https?:\/\//
     },
     description: {
@@ -26,7 +26,7 @@ const fishSchema = new mongoose.Schema({
     },
     likedList: [{
     }],
-    owners: [{
+    owner: [{
         type: mongoose.Types.ObjectId,
         ref: 'User'
     }],

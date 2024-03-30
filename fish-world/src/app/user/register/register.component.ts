@@ -51,10 +51,8 @@ console.log({'FORMVALUE':  this.form.value});
       .subscribe(() => {
         console.log('navigate work');
         console.log(email!,  password!, rePassword!);
-        
-        
-        this.router.navigate(['/home']);
 
+        this.router.navigate(['/home']);
       });
   }
 }

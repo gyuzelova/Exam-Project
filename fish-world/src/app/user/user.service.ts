@@ -16,8 +16,6 @@ export class UserService implements OnDestroy{
   userSubscription: Subscription;
 
   get isLogged(): boolean {
-   
-    
     return !!this.user;
   }
 
@@ -32,7 +30,6 @@ export class UserService implements OnDestroy{
     return this.http
       .post<UserAuth>('/api/login', { email, password })
       .pipe(tap((user) => this.user$$.next(user)))
-    
   }
 
   register(

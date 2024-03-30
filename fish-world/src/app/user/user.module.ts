@@ -17,7 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfilComponent
   ],
   imports: [
-    CommonModule, UserRouterModule,   RouterModule,
+    CommonModule,
+     UserRouterModule,  
+     RouterModule,
     SharedModule,
     FormsModule,
     ReactiveFormsModule
