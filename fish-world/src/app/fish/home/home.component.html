@@ -4,27 +4,13 @@
         <h1 id="home">Welcom to Fish World</h1>
     </section>
     <section class="item-view">
-        <aside class="item-info">
+        <aside *ngFor="let fish of fishPost" class="item-info">
             <article class="aside-item">
-                <img src="https://blog.ferplast.com/wp-content/uploads/2020/05/p-pesce-scalare-caratteristiche-ferplast.png">
-                <p>Name: The Discus fish</p>
-                <p>Type: Cichlidae </p>
-                <a class="details-btn" routerLink="/details">Details</a>
+                <img src="{{fish.image}}">
+                <p>Name: {{fish.name}}</p>
+                <p>Type: {{fish.type}} </p>
+                <a class="details-btn" routerLink="/details/fish._id">Details</a>
             </article>
-
-            <article class="aside-item">
-                <img src="https://blog.ferplast.com/wp-content/uploads/2020/05/consigli-come-allevare-pesci-tropicali-betta-splendens.jpg">
-                <p>Name: The Siamese fighting fish</p>
-                <p>Type: Betta </p>
-                <a class="details-btn" routerLink="/details">Details</a>
-            </article>
-
-            <article class="aside-item">
-                <img src="https://blog.ferplast.com/wp-content/uploads/2020/05/ferplast-pesci-pesce-combattente-1-900x600.jpg">
-                <p>Name:  King Red Betta</p>
-                <p>Type: Betta splendens </p>
-                <a class="details-btn" routerLink="/details">Details</a>
-                </article>
         </aside>
 
         <aside class="home-info">
