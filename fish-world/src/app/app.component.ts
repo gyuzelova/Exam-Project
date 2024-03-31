@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ErrorComponent } from './core/error/error.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fish-world';
+//   constructor(public error: ErrorComponent) {}
+// @Input('message') message = this.error.errorMsg;
 }

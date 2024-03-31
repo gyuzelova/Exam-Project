@@ -2,55 +2,71 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Fish } from './types/post';
 import { environment } from 'src/environments/environment.development';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
+  private fish$$ = new BehaviorSubject<Fish | undefined>(undefined);
+  private fish$ = this.fish$$.asObservable();
 
-  constructor(private http: HttpClient) { }
-  
+  fish: Fish | undefined;
+
+  fishSubscription: Subscription;
+
+  constructor(private http: HttpClient) {
+    this.fishSubscription = this.fish$.subscribe((fish) => {
+      this.fish = fish;
+    })
+  }
+
   getFishs() {
-    const { apiUrl } = environment;
-    return this.http.get<Fish[]>(`${apiUrl}/`); // check path
+    return this.http.get<Fish[]>('/api/'); // check path
+  }
+
+  getAllFishs() {
+    return this.http.get<Fish[]>('/api/catalog'); // check path
   }
 
   getCurrentPostFish(id: string) {
-    const { apiUrl } = environment;
-    return this.http.get<Fish>(`${apiUrl}/${id}`);
+    return this.http.get<Fish>(`/api/details/${id}`);
   }
 
-  createPostFish( name: string,
+  createPostFish(name: string,
     image: string,
     type: string,
     description: string,
-    likedList: string[]) {
-      const { apiUrl } = environment;
-    return this.http.post<Fish>(`${apiUrl}/create`, 
-    { name,
-      image,
-      type,
-      description,
-      likedList});
+  ) {
+    return this.http.post<Fish>('/api/create',
+      {
+        name,
+        image,
+        type,
+        description
+      });
   }
 
-  updatePostFish(id: string, 
+  updatePostFish(
+    id: string,
     name: string,
     image: string,
     type: string,
-    description: string,
-    likedList: string[]) {
-      const { apiUrl } = environment;
-    return this.http.put<Fish>(`${apiUrl}/${id}/edit`, { id, name,
+    description: string) {
+    return this.http.put<Fish>(`/api/edit/${id}`, {
+      name,
       image,
       type,
       description,
-      likedList});
+    });
   }
 
   deletePostFish(id: string) {
-    const { apiUrl } = environment;
-    return this.http.delete<Fish>(`/api/themes/${id}/delete`);
+    return this.http.delete<Fish>(`/api/delete/${id}`);
+  }
+
+  likeFish(id: string) {
+    return this.http.get<Fish>(`/api/liked/${id}`);
   }
 
   // POSTS

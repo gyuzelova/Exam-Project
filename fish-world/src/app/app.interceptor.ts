@@ -31,14 +31,15 @@ import {
           withCredentials: true,
         });
       }
+   console.log(req);
    
       return next.handle(req).pipe(
         catchError((err) => {
-          if (err) {
-            this.errorService.setError(err);
+          this.errorService.setError(err);
+          
+          if (err === 404) {
             this.router.navigate(['/error']);
           }
-  
           return [err];
         })
       );

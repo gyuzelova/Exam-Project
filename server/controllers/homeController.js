@@ -8,8 +8,7 @@ router.get('/', async (req, res) => {
         const fish = await fishService.getLatest().lean();
         res.status(200).json(fish) // if have problem my be object must be ({fish)}   
     } catch (err) {
-        res.status(401).json({'Error':err.message})
-        console.log(err)
+        res.status(200).send(err.message || err)
     }
 });
 
@@ -18,8 +17,7 @@ router.get('/catalog', async (req, res) => {
         const fish = await fishService.getAll().lean();
         res.status(200).json(fish)
     } catch (err) {
-        res.status(401).json({'Error':err.message})
-        console.log(err)
+        res.status(200).send(err.message || err)
     }
 });
 

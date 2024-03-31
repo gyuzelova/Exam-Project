@@ -13,16 +13,16 @@ exports.register = async (userData) => {
 
     const hashedPassword = await bcrypt.hash(userData.password, 12);
     userData.password = hashedPassword
-    console.log({"exports.register ====": hashedPassword});
+   // console.log({"exports.register ====": hashedPassword});
     
     const userDb = await User.create(userData);
-    console.log({"DB User": userDb})
+   // console.log({"DB User": userDb})
     const payload = {
         _id: userDb._id,
         email: userDb.email,
     };
     const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
-     console.log(token);
+    // console.log(token);
     return {userDb, token};
 };
 
@@ -30,13 +30,12 @@ exports.register = async (userData) => {
 exports.login = async (email, password) => {
     // Get user from db
     const user = await User.findOne({ email });
-    console.log({'USER':user});
+   console.log({'USER':user});
     // Check if user exists
     if (!user) {
         throw new Error('Cannot find email or password');
     }
 
-   
     const hash = await bcrypt.hash(password, 12);
     const isValid = await bcrypt.compare(password, user.password);
     if (!isValid) {
