@@ -1,8 +1,20 @@
 export interface Fish {
-    id: string;
+    _id: string,
     name: string;
     image: string;
     type: string;
     description: string;
+    owner: string[];
     likedList: string[];
+    __v: number;
+    
+}
+
+export interface DetailsFish {
+    id: string,
+    name: string;
+    image: string;
+    type: string;
+    description: string;
+    
 }

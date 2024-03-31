@@ -1,8 +1,9 @@
 export interface User {
-    id: string,
+    _id: string,
     email: string,
     password: string,
     createPost: string[],
+    __v: number
     
 }
 

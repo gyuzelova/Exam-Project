@@ -1,21 +1,20 @@
 <section class="details-wrapper">
     <div class="insidei-wrap">
-          <article class="detail-item">
-             <img src="https://blog.ferplast.com/wp-content/uploads/2020/05/p-pesce-scalare-caratteristiche-ferplast.png">
-              <p>Name: The Discus fish</p>
-              <p>Type: Cichlidae </p>
-              <p>Description: Its bright colours and its graceful movements. 
-                  It is certainly one of the most popular species. 
-                  It is very sensitive to environmental stress and does not like to live in an environment with bright lighting.</p>
-              <div class="owner-btn">
-              <button class="edit-btn" routerLink="/edit"><i class="fa-solid fa-pen"></i> Edit</button>
-              <button class="delete-btn" routerLink="/delete"> <i class="fa-solid fa-trash-can"></i> Delete</button>
-              <button class="like-btn" routerLink="/Like">
-              <i class="fa-sharp fa-solid fa-thumbs-up"></i> Like</button>
-          </div>
-          </article>
+        <article class="detail-item">
+            <img src="{{fish.image}}">
+            <p>Name: {{fish.name}}</p>
+            <p>Type: {{fish.type}} </p>
+            <p>Description: {{fish.description}}</p>
+            <div class="owner-btn" >
+                <button *ngIf="isLoggedIn && isOwner()" class="edit-btn" routerLink="/edit/{{fish._id}}"><i class="fa-solid fa-pen"></i> Edit</button>
+                <button *ngIf="isLoggedIn && isOwner()" (click)="deletePost(fish)" class="delete-btn" routerLink="/delete/{{fish._id}}"> <i
+                        class="fa-solid fa-trash-can"></i> Delete</button>
+                <button *ngIf="isLoggedIn && isLikedUser()" (click)="isLiked(fish)" class="like-btn" routerLink="/liked/{{fish._id}}">
+                    <i class="fa-sharp fa-solid fa-thumbs-up"></i> Like</button>
+            </div>
+            <p> {{fish.likedList?.length || 0}} Liks</p>
+        </article>
 
-          </div>
-    
-  </section>
+    </div>
 
+</section>

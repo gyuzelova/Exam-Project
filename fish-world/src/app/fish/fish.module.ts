@@ -8,6 +8,7 @@ import { FishRoutingModule } from './fish-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { EditPageComponent } from './edit-page/edit-page.component';
 
 
 
@@ -17,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     CatalogComponent,
     AddFishComponent,
     DetailsComponent,
+    EditPageComponent,
   
   ],
   imports: [
