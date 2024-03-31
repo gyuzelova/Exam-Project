@@ -19,6 +19,6 @@ import { UserModule } from '../user/user.module';
   ],
   imports: [
     CommonModule, RouterModule, UserModule
-  ], exports: [FooterComponent, HeaderComponent]
+  ], exports: [FooterComponent, HeaderComponent, ErrorComponent]
 })
 export class CoreModule { }

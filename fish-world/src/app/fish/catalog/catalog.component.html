@@ -1,15 +1,15 @@
 <main>
-       
+    <h1 id="home">Beautiful fish dashboard</h1>
     <section class="details-wrapper">
       <div *ngFor="let fish of fishPost" class="insidei-wrap">
             <article class="detail-item">
                <img src="{{fish.image}}">
                 <p>Name: {{fish.name}}</p>
                 <p>Type: {{fish.type}} </p>
-                <a class="details-btn" [routerLink]="fish.id"><i class="fa-regular fa-circle-info"></i> Details</a>
+                <a class="details-btn" routerLink="/details/{{fish._id}}"><i class="fa-regular fa-circle-info"></i> Details</a>
             </article>
             </div>
-      
+            <p *ngIf="fishPost?.length === 0" class="no-post">There are no animals in need!</p>
     </section>
 
 
