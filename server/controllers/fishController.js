@@ -20,7 +20,7 @@ console.log(err);
 });
 
 router.get('/details/:fishId', async (req, res) => {
-  console.log(req.params.fishId);
+  console.log({"DETAILS":req.params.fishId});
     try {
         const fish = await fishService.getOne(req.params.fishId).lean();
         // const isOwner = fish.owner && fish.owner[0] == req.user?._id;
@@ -37,15 +37,16 @@ router.get('/edit/:fishId', isAuth, async (req, res) => {
 
     try {
         const fish = await fishService.getOne(req.params.fishId).lean();
-        res.status(200).json(fish)
+        res.status(200).send(fish)
     } catch (err) {
         res.status(400).json({ 'Error': err.message })
     }
 
 });
 
-router.post('/edit/:fishId', isAuth, async (req, res) => {
-    const editedStone = req.body;
+router.put('/edit/:fishId', async (req, res) => {
+    const editedFish = req.body;
+    console.log({"EDIT":editedFish});
     try {
         const fish = await fishService.edit(req.params.fishId, editedFish);
 

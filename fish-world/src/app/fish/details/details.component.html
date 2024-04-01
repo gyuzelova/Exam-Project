@@ -6,10 +6,10 @@
             <p>Type: {{fish.type}} </p>
             <p>Description: {{fish.description}}</p>
             <div class="owner-btn" >
-                <button *ngIf="isLoggedIn && isOwner()" class="edit-btn" routerLink="/edit/{{fish._id}}"><i class="fa-solid fa-pen"></i> Edit</button>
-                <button *ngIf="isLoggedIn && isOwner()" (click)="deletePost(fish)" class="delete-btn" routerLink="/delete/{{fish._id}}"> <i
+                <button *ngIf="isLoggedIn" class="edit-btn" routerLink="/edit/{{fish._id}}"><i class="fa-solid fa-pen"></i> Edit</button>
+                <button *ngIf="isLoggedIn" (click)="deletePost(fish)" class="delete-btn" routerLink="/delete/{{fish._id}}"> <i
                         class="fa-solid fa-trash-can"></i> Delete</button>
-                <button *ngIf="isLoggedIn && isLikedUser()" (click)="isLiked(fish)" class="like-btn" routerLink="/liked/{{fish._id}}">
+                <button *ngIf="isLoggedIn" (click)="isLiked(fish)" class="like-btn" routerLink="/liked/{{fish._id}}">
                     <i class="fa-sharp fa-solid fa-thumbs-up"></i> Like</button>
             </div>
             <p> {{fish.likedList?.length || 0}} Liks</p>

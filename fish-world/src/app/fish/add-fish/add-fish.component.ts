@@ -31,6 +31,8 @@ const { name, image,
   .subscribe(()=> {
     this.router.navigate(['/catalog'])
   });
+ 
+  
   }
 
 }

@@ -29,6 +29,9 @@ export class AppService {
     return this.http.get<Fish[]>('/api/catalog'); // check path
   }
 
+  getCurrentFish(id: string) {
+    return this.http.get<Fish>(`/api/edit/${id}`);
+  }
   getCurrentPostFish(id: string) {
     return this.http.get<Fish>(`/api/details/${id}`);
   }

@@ -1,0 +1,41 @@
+<main class="create">
+
+    <form  class="form_class"[formGroup]="form" (ngSubmit)="saveEditFish()">
+        <h1>Edit Post</h1>
+
+        <div class="form_div">
+            <label>Fish Name:</label>
+            <input class="field_class" 
+            name="name" 
+            type="text"
+            [placeholder]="detailsFish.name"
+            formControlName="name"
+            />
+
+            <label>Image</label>
+            <input id="img-url"
+             class="field_class" 
+             type="text" 
+             name="image"  
+             [placeholder]="detailsFish.image"
+             formControlName="image"/>
+            
+            <label>Fish Type:</label>
+            <input  class="field_class" 
+            name="type" 
+            [placeholder]="detailsFish.type"
+            formControlName="type"
+            />
+
+            <label>Description:</label>
+            <textarea  class="field_class" 
+            name="description" 
+            placeholder="description"
+            formControlName="description"
+            ></textarea>
+            <button class="submit_class"  type="submit">Edit</button>
+
+        </div>
+
+    </form>
+</main>
