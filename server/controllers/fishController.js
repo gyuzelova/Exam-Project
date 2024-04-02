@@ -5,6 +5,7 @@ const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 
 
 router.post('/create', isAuth, async (req, res, next) => {
+    console.log({'isAuth':isAuth});
     const fishData = {
         name: req.body.name,
         image: req.body.image,
@@ -19,7 +20,7 @@ router.post('/create', isAuth, async (req, res, next) => {
         res.status(200).json(postFish)
     } catch (err) {
 console.log(err);
-        res.status(200).send(err.message || err)
+        res.status(404).send(err.message || err)
     }
 
 });

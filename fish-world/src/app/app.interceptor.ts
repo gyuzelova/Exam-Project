@@ -38,7 +38,7 @@ import {
           this.errorService.setError(err);
           
           if (err === 404) {
-            this.router.navigate(['/error']);
+            this.router.navigate(['/404']);
           }
           return [err];
         })

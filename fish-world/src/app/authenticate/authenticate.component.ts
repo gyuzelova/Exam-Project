@@ -23,8 +23,14 @@ this.userService.getUser().subscribe({
         this.router.navigate(['/404'])
       },
       complete: () => {
-      this.isAuthenticating = false; 
-      this.router.navigate(['/home'])
+        if (this.userService.isLogged) {
+          this.isAuthenticating = false; 
+           this.router.navigate(['/home'])
+        } else {
+          this.isAuthenticating = false; 
+          this.router.navigate(['/404'])
+        }
+      
       }
     });
 

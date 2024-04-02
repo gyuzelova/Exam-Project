@@ -23,7 +23,7 @@ exports.auth = async (req, res, next) => {
 
 exports.isAuth = (req, res, next) => {
     if (!req.user) {
-        return res.redirect('/login');
+        return res.status('404');
     }
 
     next();
