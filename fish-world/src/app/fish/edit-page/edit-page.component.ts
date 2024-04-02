@@ -33,7 +33,7 @@ export class EditPageComponent implements OnInit {
   ngOnInit(): void {
 
     this.activeRouter.params.subscribe((data)=>{
-      console.log(data);
+      
       
       const id = data['fishId'];
       this.api.getCurrentFish(id).subscribe((fish)=>{

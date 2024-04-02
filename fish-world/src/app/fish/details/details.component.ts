@@ -10,48 +10,63 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  fish = {} as Fish
+  fish = {} as Fish;
+  userId : string ='';
+  ownerId : string[] =[];
+  likeArray : string[] = []
 
   constructor(private api: AppService,
     private activeRouter: ActivatedRoute,
     private userService: UserService,
     private router: Router) { }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login'])
+    }
     this.activeRouter.params.subscribe((data) => {
       const id = data['fishId'];
-      console.log({ 'dtails': data });
+     
       this.api.getCurrentPostFish(id).subscribe((fish) => {
         this.fish = fish;
-      });
+        this.ownerId.push(fish.owner[0]);
+        this.likeArray = fish.likedList.slice()
+        console.log(this.fish);
+        
+      })
     });
 
+  }
+
+  numLikes() {
+    return this.likeArray.length || 0;
   }
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
-  currentUserId(){
-    return this.userService.user?.id || '';
+  currentUserId(): string {
+    return this.userService.isUserId;
   }
-  currentFishOwner(){
-    return this.fish.owner[0]
-  }
-
-  isLikedUser(){
-    return this.fish.likedList.includes(this.currentUserId())
+  currentFishOwner(): string {
+    return this.ownerId.join()
   }
 
-  isLiked(fish: Fish)  {
-    const id = fish._id;
+   isLikedUser(): boolean {
+     return this.likeArray.includes(this.currentUserId())
+   }
+
+  isOwner(): boolean {
+    return this.currentFishOwner() === this.currentUserId() ? true : false;
+  }
+
+  liked() {
+    const id = this.fish._id;
     this.api.likeFish(id).subscribe((fish) => {
       this.fish = fish;
       this.router.navigate(['/catalog'])
+      this.ngOnInit();
     });
-  }
-
-  isOwner() {
-  return  this.currentFishOwner() === this.currentUserId() ? true :false;
   }
 
   deletePost(fish: Fish) {
@@ -60,7 +75,5 @@ export class DetailsComponent implements OnInit {
       this.router.navigate(['/catalog'])
     })
   }
-
-
 
 }
