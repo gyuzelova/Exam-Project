@@ -37,27 +37,21 @@ export class DetailsComponent implements OnInit {
     });
 
   }
+  
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
 
   numLikes() {
     return this.likeArray.length || 0;
   }
 
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
-  currentUserId(): string {
-    return this.userService.isUserId;
-  }
-  currentFishOwner(): string {
-    return this.ownerId.join()
-  }
-
    isLikedUser(): boolean {
-     return this.likeArray.includes(this.currentUserId())
+     return this.likeArray.includes(this.userService.isUserId)
    }
 
   isOwner(): boolean {
-    return this.currentFishOwner() === this.currentUserId() ? true : false;
+    return this.ownerId.join() === this.userService.isUserId ? true : false;
   }
 
   liked() {
@@ -75,5 +69,11 @@ export class DetailsComponent implements OnInit {
       this.router.navigate(['/catalog'])
     })
   }
+  // currentUserId(): string {
+  //   return this.userService.isUserId;
+  // }
+  // currentFishOwner(): string {
+  //   return this.ownerId.join()
+  // }
 
 }

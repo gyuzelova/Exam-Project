@@ -18,9 +18,40 @@
                   Email is not valid!
                 </p>
               </ng-container>
+              <div class="radio-div">
+                <p>Please select your gender:</p>
+
+                <label  class="radio-lable" for="male">Male</label>
+                <input class="radio-field" 
+                name="gender" 
+                type="radio" 
+                id="mail"
+                value="male"
+                placeholder="gender" 
+                formControlName="gender"
+                />
+  
+                <label class="radio-lable" for="female">Female</label>
+                <input class="radio-field" 
+                name="gender" 
+                type="radio" 
+                id="femail"
+                value="female"
+                placeholder="gender" 
+                formControlName="gender"
+                /><br>
+  
+              </div>
+             
+              <ng-container *ngIf="form.get('gender')?.touched">
+                <p class="error" *ngIf="form.get('gender')?.errors?.['required']">
+                  Gender is required!
+                </p>
+               
+              </ng-container>
 
             <ng-container formGroupName="passGroup">
-                <label>Password:</label>
+                <!-- <label>Password:</label> -->
                 <input id="pass" 
                 class="field_class" 
                 name="password_txt" 
@@ -29,7 +60,7 @@
                 formControlName="password"
                 />
     
-                <label>Repeat Password:</label>
+                <!-- <label>Repeat Password:</label> -->
                 <input id="pass" 
                 class="field_class" 
                 name="password_txt" 

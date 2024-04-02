@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import {  UserAuth } from '../types/user';
+import {  UserAuth, UserProfilData } from '../types/user';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -37,12 +37,15 @@ export class UserService implements OnDestroy{
 
   register(
     email: string,
+    gender: string,
     password: string,
-    rePassword: string
+    rePassword: string,
+  
   ) {
     return this.http
       .post<UserAuth>('/api/register', {
         email,
+        gender,
         password,
         rePassword,
       })
@@ -58,22 +61,26 @@ export class UserService implements OnDestroy{
       .pipe(tap(() => this.user$$.next(undefined)));
   }
 
-  getProfile() {
-    return this.http
-      .get<UserAuth>('/api/profile')
-      .pipe(tap((user) => this.user$$.next(user)));
-  }
+  // getProfile() {
+  //   return this.http
+  //     .get<UserAuth>('/api/profile')
+  //     .pipe(tap((user) => this.user$$.next(user)));
+  // }
   getUser() {
     return this.http
       .get<UserAuth>('/api/profile')
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  updateProfile( email: string) {
+  getProfileData( id: string) {
     return this.http
-      .put<UserAuth>('/api/profile', {email})
-      .pipe(tap((user) => this.user$$.next(user)));
+      .get<UserProfilData>(`/api/profile/${id}`)    
   }
+
+  // getProfilFish() {
+  //   return this.http
+  //     .get<UserAuth>(`/api/profile/fish`)    
+  // }
 
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();

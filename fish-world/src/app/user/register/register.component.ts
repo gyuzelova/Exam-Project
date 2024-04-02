@@ -12,6 +12,7 @@ import { matchPasswordsValidator } from 'src/app/shared/utils/match-passwords-va
 export class RegisterComponent {
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
+    gender: ['', [Validators.required]],
     passGroup: this.fb.group(
       {
         password: ['', [Validators.required]],
@@ -42,15 +43,16 @@ export class RegisterComponent {
 
     const {
       email,
+      gender,
       passGroup: { password, rePassword } = {},
     } = this.form.value;
 console.log({'FORMVALUE':  this.form.value});
 
     this.userService
-      .register( email!,  password!, rePassword!)
+      .register( email!, gender!,  password!, rePassword!)
       .subscribe(() => {
         console.log('navigate work');
-        console.log(email!,  password!, rePassword!);
+        console.log(email!,gender!,  password!, rePassword!);
 
         this.router.navigate(['/home']);
       });

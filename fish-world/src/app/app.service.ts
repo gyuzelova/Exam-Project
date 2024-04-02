@@ -30,13 +30,15 @@ export class AppService {
     image: string,
     type: string,
     description: string,
+    userID: string,
   ) {
     return this.http.post<Fish>('/api/create',
       {
         name,
         image,
         type,
-        description
+        description,
+        userID
       });
   }
 

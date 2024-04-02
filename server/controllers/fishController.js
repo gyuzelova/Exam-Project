@@ -5,11 +5,17 @@ const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 
 
 router.post('/create', isAuth, async (req, res, next) => {
-    const fishData = req.body;
-
+    const fishData = {
+        name: req.body.name,
+        image: req.body.image,
+        type: req.body.type,
+        description: req.body.description,
+    };
+    const userId = req.body.userID
+   
+    
     try {
-        const postFish = await fishService.create(req.user._id, fishData);
-console.log(postFish);
+        const postFish = await fishService.create(userId, fishData);
         res.status(200).json(postFish)
     } catch (err) {
 console.log(err);
@@ -19,7 +25,7 @@ console.log(err);
 });
 
 router.get('/details/:fishId', isAuth,  async (req, res) => {
-  console.log({"DETAILS":req.params.fishId});
+
     try {
         const fish = await fishService.getOne(req.params.fishId).lean();
         // const isOwner = fish.owner && fish.owner[0] == req.user?._id;

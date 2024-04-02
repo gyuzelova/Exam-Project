@@ -16,17 +16,18 @@ this.userService.getUser().subscribe({
   
       next: () => {
         this.isAuthenticating = false;
-        this.router.navigate(['/404'])
+       
       },
       error: () => {
         this.isAuthenticating = false;
         this.router.navigate(['/404'])
       },
       complete: () => {
-        this.isAuthenticating = false;
-        this.router.navigate(['/404'])
-      },
+      this.isAuthenticating = false; 
+      this.router.navigate(['/home'])
+      }
     });
 
   }
+  
 }

@@ -6,6 +6,31 @@ main {
     width: 100%;
    
 }
+.radio-lable {
+    float: left;
+      clear: none;
+      display: block;
+      padding: 0px 1em 0px 8px;
+/* float:inline-start;
+font-size: 10px;
+font-weight: bold;
+font-family:Arial, Helvetica, sans-serif;
+padding-left: 15px; */
+}
+.radio-div {
+    overflow: hidden;
+    float: left;
+    clear: none;
+}
+
+.radio-field {
+    float: left;
+    clear: none;
+    margin: 2px 0 0 2px;
+    /* float: inline-start;
+    padding-left: 15px; */
+  
+}
 .form_class {
     width: 500px;
     padding: 40px;
