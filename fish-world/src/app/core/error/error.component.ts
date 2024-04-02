@@ -17,11 +17,12 @@ export class ErrorComponent implements OnInit {
   ngOnInit(): void {
     this.errorService.apiError$.subscribe((err: any) => {
       this.errorMsg = err?.error.text || '';
+      setTimeout(()=>{
+        this.errorMsg= ''}, 5000);
     });
    
-    setTimeout(()=>{
-      this.errorMsg= ''}, 5000);
   }
+  
 
 
 }
