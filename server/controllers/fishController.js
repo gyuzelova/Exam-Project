@@ -1,11 +1,10 @@
 const router = require('express').Router();
 const fishService = require('../services/fishService');
-const { isAuth } = require('../middlewares/authMiddleware');
 const { getErrorMessage, validate } = require('../utils/errorUtils');
+const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 
 
-
-router.post('/create', async (req, res, next) => {
+router.post('/create', isAuth, async (req, res, next) => {
     const fishData = req.body;
 
     try {
@@ -19,7 +18,7 @@ console.log(err);
 
 });
 
-router.get('/details/:fishId', async (req, res) => {
+router.get('/details/:fishId', isAuth,  async (req, res) => {
   console.log({"DETAILS":req.params.fishId});
     try {
         const fish = await fishService.getOne(req.params.fishId).lean();
@@ -44,7 +43,7 @@ router.get('/edit/:fishId', isAuth, async (req, res) => {
 
 });
 
-router.put('/edit/:fishId', async (req, res) => {
+router.put('/edit/:fishId', isAuth,  async (req, res) => {
     const editedFish = req.body;
     console.log({"EDIT":editedFish});
     try {
@@ -69,7 +68,7 @@ router.delete('/delete/:fishId', async (req, res) => {
 });
 
 
-router.get('/liked/:fishId', async (req, res) => {
+router.get('/liked/:fishId', isAuth,  async (req, res) => {
 
     try {
         const fish = await fishService.liked(req.params.fishId, req.user._id);

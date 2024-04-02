@@ -1,8 +1,10 @@
 const router = require('express').Router();
+const jwt = require('../lib/jwt');
 const authService = require('../services/authService');
 const { getErrorMessage, validate } = require('../utils/errorUtils');
 const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 const User = require('../models/User.js');
+const { SECRET } = require('../config');
 
 
 // router.get('/register', isGuest, (req, res) => {
@@ -45,12 +47,18 @@ router.post('/register', isGuest, async (req, res) => {
     }
 });
 
-router.get('/profile', (req, res, next) => {
-    const { _id: userId } = req.user ? req.user : [];
-
-    User.findOne({ _id: userId })
-        .then(user => { res.status(200).json(user) })
-        .catch(next);
+router.get('/profile', async (req, res, next) => {
+    const token = req.cookies['auth'];
+    try {
+        const decodedToken = await jwt.verify(token, SECRET);
+        console.log({'DECOD':decodedToken});
+        res.status(200).send(decodedToken);
+        next();
+    } catch(err) {
+        res.status(340).send(err.message || err);
+        // res.redirect('/login');
+    }
+   
 });
 
 router.post('/login', isGuest, async (req, res, next) => {

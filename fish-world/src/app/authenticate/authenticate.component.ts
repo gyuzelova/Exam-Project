@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-authenticate',
@@ -9,17 +10,21 @@ import { UserService } from '../user/user.service';
 export class AuthenticateComponent implements OnInit {
   isAuthenticating = true;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
   ngOnInit(): void {
-this.userService.getProfile().subscribe({
+this.userService.getUser().subscribe({
+  
       next: () => {
         this.isAuthenticating = false;
+        this.router.navigate(['/404'])
       },
       error: () => {
         this.isAuthenticating = false;
+        this.router.navigate(['/404'])
       },
       complete: () => {
         this.isAuthenticating = false;
+        this.router.navigate(['/404'])
       },
     });
 

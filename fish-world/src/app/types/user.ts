@@ -8,13 +8,13 @@ export interface User {
 }
 
 export interface UserAuth {
-    id: string,
+    _id: string,
     email: string,
     password: string,  
 }
 
 export interface UserProfil{
-    id: string,
+    _id: string,
     email: string,
     password: string,  
     createPost: string[],

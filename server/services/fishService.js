@@ -9,7 +9,7 @@ exports.getLatest = () => Fish.find().sort({ createdAt: 'desc' }).limit(3)
 
 exports.getOne = (fishId) => Fish.findById(fishId);
 
-exports.getOneDetailed = (fishId) => Fish.findById(fishId).populate('owner').populate('signUpList');
+exports.getOneDetailed = (fishId) => Fish.findById(fishId).populate('owner');
 
 exports.edit = (fishId, fishData) => Fish.findByIdAndUpdate(fishId, fishData, { runValidators: true });
 

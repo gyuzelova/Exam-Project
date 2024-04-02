@@ -10,6 +10,6 @@ router.use(fishController);
 
 
 router.all('*', (req, res) => {
-    res.redirect('404')
+    res.status(404)
 })
 module.exports = router;

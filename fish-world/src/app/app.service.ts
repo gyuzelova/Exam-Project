@@ -8,18 +8,8 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   providedIn: 'root'
 })
 export class AppService {
-  private fish$$ = new BehaviorSubject<Fish | undefined>(undefined);
-  private fish$ = this.fish$$.asObservable();
 
-  fish: Fish | undefined;
-
-  fishSubscription: Subscription;
-
-  constructor(private http: HttpClient) {
-    this.fishSubscription = this.fish$.subscribe((fish) => {
-      this.fish = fish;
-    })
-  }
+  constructor(private http: HttpClient) {}
 
   getFishs() {
     return this.http.get<Fish[]>('/api/'); // check path

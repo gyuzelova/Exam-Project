@@ -18,6 +18,9 @@ export class UserService implements OnDestroy{
   get isLogged(): boolean {
     return !!this.user;
   }
+  get isUserId(): string {
+    return this.user?._id || '';
+  }
 
   constructor(private http: HttpClient) {
     this.userSubscription = this.user$.subscribe((user) => {
@@ -56,6 +59,11 @@ export class UserService implements OnDestroy{
   }
 
   getProfile() {
+    return this.http
+      .get<UserAuth>('/api/profile')
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
+  getUser() {
     return this.http
       .get<UserAuth>('/api/profile')
       .pipe(tap((user) => this.user$$.next(user)));

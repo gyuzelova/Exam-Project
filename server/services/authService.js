@@ -55,8 +55,8 @@ return {user, token};
   
 }
 
-// exports.profile = async (userData) => {
-//     const id = userData._id;
-//     const user = await User.findById(id);
-//     return user
-// }
+exports.profile = async (userData) => {
+    const id = userData._id;
+    const user = await User.findById(id);
+    return user
+}
