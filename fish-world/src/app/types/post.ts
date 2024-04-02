@@ -6,7 +6,7 @@ export interface Fish {
     description: string;
     owner: string[];
     likedList: string[];
-    __v: number;
+   
     
 }
 

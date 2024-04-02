@@ -8,6 +8,9 @@ const userSchema = new mongoose.Schema({
         unique: true,
         minLength: [10, 'Email should be at least 10 characters'],
     },
+    gender:{type: String,
+    required: [true, 'Gender is required!'],
+    },
     password: {
         type: String,
         required: [true, 'Password is required!'],

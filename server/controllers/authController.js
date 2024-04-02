@@ -5,6 +5,7 @@ const { getErrorMessage, validate } = require('../utils/errorUtils');
 const { isAuth, isGuest } = require('../middlewares/authMiddleware');
 const User = require('../models/User.js');
 const { SECRET } = require('../config');
+const fishService = require('../services/fishService')
 
 
 // router.get('/register', isGuest, (req, res) => {
@@ -33,6 +34,7 @@ router.post('/register', isGuest, async (req, res) => {
     
     let userDTO = {
         "email": userData.email,
+        "gender": userData.gender,
         "password": userData.password,
     }
     console.log({ 'DTO body': userDTO });
@@ -51,11 +53,36 @@ router.get('/profile', async (req, res, next) => {
     const token = req.cookies['auth'];
     try {
         const decodedToken = await jwt.verify(token, SECRET);
-        console.log({'DECOD':decodedToken});
+        console.log({'token': decodedToken});
         res.status(200).send(decodedToken);
         next();
     } catch(err) {
-        res.status(340).send(err.message || err);
+        console.log(err.message || err);
+        res.status(200).send(err.message || err);
+        // res.redirect('/login');
+    }
+   
+});
+
+router.get('/profile/:userId', async (req, res, next) => {
+    const id = req.user._id
+   
+    try {
+        const user = await authService.getProfile(id);
+        const fishs =  await fishService.getOwn(id);
+        
+        const userData = {  
+            _id: user._id,
+            email: user.email,
+            gender: user.gender,
+            password: user.password,  
+            createPost: user.createPost.length,
+            fishs: fishs
+        }
+        res.status(200).send(userData)
+    } catch(err) {
+        console.log(err.message || err);
+        res.status(200).send(err.message || err);
         // res.redirect('/login');
     }
    

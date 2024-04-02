@@ -21,7 +21,7 @@ exports.register = async (userData) => {
         _id: userDb._id,
         email: userDb.email,
     };
-    const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
+    const token = await jwt.sign(payload, SECRET, { });
     // console.log(token);
     return {userDb, token};
 };
@@ -30,7 +30,7 @@ exports.register = async (userData) => {
 exports.login = async (email, password) => {
     // Get user from db
     const user = await User.findOne({ email });
-   console.log({'USER':user});
+   console.log({'USER_LOGIN':user});
     // Check if user exists
     if (!user) {
         throw new Error('Cannot find email or password');
@@ -58,5 +58,10 @@ return {user, token};
 exports.profile = async (userData) => {
     const id = userData._id;
     const user = await User.findById(id);
+    return user
+}
+exports.getProfile = async (id) => {
+    const user = await User.findById(id);
+    console.log({"USER_PROFIL": user});
     return user
 }

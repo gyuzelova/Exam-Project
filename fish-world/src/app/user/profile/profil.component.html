@@ -1,1 +1,25 @@
-<p>profil works!</p>
+<main>
+    <section class="profil-detail">
+        <div class="item-info">
+        <article class="profile-item">
+            <img src="{{profilImage()}}">
+            <p>User: {{userdata.email}} </p>
+            <p>Total Created Posts: {{userdata.createPost}} </p>  
+            <p>Most Popular Post: likes </p>
+        </article>
+    </div>
+    </section>
+    <p *ngIf="ifHasPosts()" class="no-post">You haven't created a post yet..!</p>
+    <section class="post-details">
+        <h2>My Posts</h2>
+        <div *ngFor="let fish of fishPost" class="post-info">
+            <article class="post-item">
+                <img src="{{fish.image}}">
+                <p>Name: {{fish.name}}</p>
+                <p>Type: {{fish.type}} </p>
+                <a class="details-btn" routerLink="/details/">Details</a>
+            </article>
+        </div>
+    </section>
+   
+</main>

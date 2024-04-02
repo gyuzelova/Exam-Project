@@ -12,6 +12,9 @@ router.get('/', async (req, res) => {
     }
 });
 
+
+
+
 router.get('/catalog', async (req, res) => {
     try {
         const fish = await fishService.getAll().lean();
