@@ -42,7 +42,7 @@ router.post('/register', isGuest, async (req, res) => {
     try {
         const { user, token } = await authService.register(userDTO);
         console.log(user, token);
-        res.status(200).cookie('auth', token, {maxAge: 2*60*1000}).send(user);
+        res.status(200).cookie('auth', token).send(user);
 
     } catch (err) {
         res.status(200).send(err.message || err)

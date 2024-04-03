@@ -26,6 +26,8 @@ import {
     
 
       if (req.url.startsWith(this.API)) {
+        console.log('interseptor');
+        
         req = req.clone({
           url: req.url.replace(this.API, apiUrl),
           withCredentials: true,
@@ -35,9 +37,10 @@ import {
    
       return next.handle(req).pipe(
         catchError((err) => {
-          this.errorService.setError(err);
-          
-          if (err === 404) {
+          if (err.status === 401) {
+            this.router.navigate(['/login']);
+          } else {
+            this.errorService.setError(err);
             this.router.navigate(['/404']);
           }
           return [err];

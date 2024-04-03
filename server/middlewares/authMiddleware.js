@@ -16,7 +16,7 @@ exports.auth = async (req, res, next) => {
 
         next();
     } catch(err) {
-    res.status(404).send(err.message || err);
+    res.status(401).send(err.message || err);
       
     }
 };
