@@ -15,15 +15,15 @@ exports.auth = async (req, res, next) => {
         //res.locals.user = decodedToken;
 
         next();
-    } catch {
-    res.status(404);
+    } catch(err) {
+    res.status(404).send(err.message || err);
       
     }
 };
 
 exports.isAuth = (req, res, next) => {
     if (!req.user) {
-        return res.status('404');
+       res.status(401).send(err.message || err)
     }
 
     next();
@@ -31,7 +31,7 @@ exports.isAuth = (req, res, next) => {
 
 exports.isGuest = (req, res, next) => {
     if (req.user) {
-        return res.redirect('/');
+        res.redirect('/');
     }
 
     next();

@@ -41,13 +41,14 @@ exports.login = async (email, password) => {
     if (!isValid) {
         throw new Error('Cannot find email or password');
     }
+    
  
   const payload = {
     _id: user._id,
     email: user.email,
 };
 
-const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
+const token = await jwt.sign(payload, SECRET, { expiresIn: '4h' });
 
 // return token
 return {user, token};
