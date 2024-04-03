@@ -17,7 +17,7 @@ Guest users will have access to the Home Page, the Catalog and the authenticatio
     * `cd Exam-Project/fish-world` -> `npm install` (or `npm i`)
     * `ng serve`
     *  Which opens the app at http://localhost:4200 in your browser.
-## Run RESTful API server:
+## Run  server:
  * Open terminal "server" and run:
     * `cd Exam-Project/server` -> `npm install` (or `npm i`)
     * `npm start`

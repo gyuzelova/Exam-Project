@@ -1,0 +1,287 @@
+[{
+  "_id": {
+    "$oid": "66086b98f1d0bfe9db721df6"
+  },
+  "name": "Nemo",
+  "image": "https://i.dailymail.co.uk/1s/2019/11/11/17/20872780-0-image-a-13_1573493780058.jpg",
+  "type": "Ocellaris clownfish",
+  "description": "The common clownfish is a small fish which grows up to 11 cm. Its body has a stocky appearance and oval shape. It is compressed laterally, with a round profile.",
+  "likedList": [
+    "6605b3e28e3e211080616f45",
+    "6608740a3aa41ce9caf0aeb7",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45"
+  ],
+  "owner": [
+    {
+      "$oid": "6605b3e28e3e211080616f45"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-30T19:44:24.285Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-02T01:09:23.958Z"
+  },
+  "__v": 90
+},
+{
+  "_id": {
+    "$oid": "66086fbd968c249abd6294b7"
+  },
+  "name": "The Discus fish",
+  "image": "https://img.freepik.com/premium-photo/discus-fish-png_636537-33620.jpg",
+  "type": "Cichlidae",
+  "description": "escription: Its bright colours and its graceful movements. \n                  It is certainly one of the most popular species. \n                  It is very sensitive to environmental stress and does not like to live in an environment with bright lighting.",
+  "likedList": [
+    "6608740a3aa41ce9caf0aeb7",
+    "6608740a3aa41ce9caf0aeb7",
+    "6608740a3aa41ce9caf0aeb7",
+    "6608740a3aa41ce9caf0aeb7",
+    "6608740a3aa41ce9caf0aeb7",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45"
+  ],
+  "owner": [
+    {
+      "$oid": "6605b3e28e3e211080616f45"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-30T20:02:05.237Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T19:43:14.441Z"
+  },
+  "__v": 8
+},
+{
+  "_id": {
+    "$oid": "660873743aa41ce9caf0aeab"
+  },
+  "name": "The Siamese fighting fish",
+  "image": "https://cdn.mos.cms.futurecdn.net/RY2EpSo74hvYXyAVpTN2Gg-1200-80.jpg",
+  "type": "Betta",
+  "description": "Betta splendens is native to Southeast Asia.They usually grows to a length of about 6–8 cm. It is one of 73 species of the genus Betta, but the only one eponymously called \"betta\", owing to its global popularity as a pet; Betta splendens are among the most popular aquarium fish in the world",
+  "likedList": [
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6609b87d492c942bac8be734",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45",
+    "6605b3e28e3e211080616f45"
+  ],
+  "owner": [
+    {
+      "$oid": "6605b3e28e3e211080616f45"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-30T20:17:56.755Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-01T19:43:10.697Z"
+  },
+  "__v": 7
+},
+{
+  "_id": {
+    "$oid": "6608756d3aa41ce9caf0aeca"
+  },
+  "name": "King Red Betta",
+  "image": "https://i.natgeofe.com/n/b384afe3-bcdb-4b2b-9344-de9421e43ab5/NationalGeographic_2445745_3x4.jpg",
+  "type": "Betta splendens",
+  "description": "Betta fish are among the most popular and beautiful pet fish in the world, but that wasn't always so. The genus Betta contains more than 73 recognized species, but the fish most people are familiar with is Betta splendens, or Siamese Fighting Fish. ",
+  "likedList": [
+    "6608740a3aa41ce9caf0aeb7",
+    "6605b3e28e3e211080616f45"
+  ],
+  "owner": [
+    {
+      "$oid": "6608740a3aa41ce9caf0aeb7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-03-30T20:26:21.558Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-02T01:11:44.744Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "660bdfe0517af24514b9647b"
+  },
+  "name": "Gold Fish",
+  "image": "https://www.fitzfishponds.com/media/Pond-Fish-Spotlight-Fantail.jpeg",
+  "type": "Cyprinidae",
+  "description": "Goldfish have two sets of paired fins and three sets of single fins. They don't have barbels, sensory organs some fish have that act like taste buds. Nor do they have scales on their heads. They also don't have teeth and instead crush their food in their throats.",
+  "likedList": [],
+  "owner": [
+    {
+      "$oid": "6605b3e28e3e211080616f45"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-04-02T10:37:20.030Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-02T10:37:20.030Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660d7b0981c29c2287c8cf39"
+  },
+  "name": "Oscar",
+  "image": "https://s3.amazonaws.com/external_clips/attachments/5800714/original/shutterstock_1610916673-web.jpg",
+  "type": "Cichlidae",
+  "description": "Looking for a big fish to be a solo centerpiece in your home aquarium? Then consider the flashy, sassy oscar! These bright fish can grow to a whopping 18 inches in length.When oscars are young, they are timid and meek. They become more aggressive as they grow older and larger",
+  "likedList": [],
+  "owner": [
+    {
+      "$oid": "6608740a3aa41ce9caf0aeb7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-04-03T15:51:37.185Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-03T15:51:37.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660d7b9881c29c2287c8cf41"
+  },
+  "name": " Peacock Bass",
+  "image": "https://s3.amazonaws.com/external_clips/attachments/5800715/original/shutterstock_671287354-web.jpg",
+  "type": "Cichlidae",
+  "description": "The peacock bass is a gorgeous fish with colors ranging from greens to golds with three black bars on their backs. Even though they're called \"bass,\" they're actually a member of the cichlid family. Males typically grow a hump on their heads when they're ready to reproduce. Peacock bass are predatory fish that will eat their own species if food is in short supply. Be sure to choose tankmates the same size or larger to keep peace in the aquarium.",
+  "likedList": [],
+  "owner": [
+    {
+      "$oid": "6608740a3aa41ce9caf0aeb7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-04-03T15:54:00.481Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-03T15:54:00.481Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660d7be081c29c2287c8cf47"
+  },
+  "name": "Midas Cichlid",
+  "image": "https://s3.amazonaws.com/external_clips/attachments/5800716/original/shutterstock_1675629973-web.jpg",
+  "type": "Cichlidae",
+  "description": "These brightly colored fish are often mistaken for their cousins, the red devil cichlids. Midas cichlids are large — growing up to 14 inches long. They have a distinctive hump on their heads that appears as they mature, which is larger on males. Midas cichlids are very territorial during mating season, defending a 4-foot territory around their nest. It's a good idea to keep them in a tank no less than 6 feet long and place decor in a way that gives their nest boundaries.",
+  "likedList": [],
+  "owner": [
+    {
+      "$oid": "6608740a3aa41ce9caf0aeb7"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-04-03T15:55:12.751Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-03T15:55:12.751Z"
+  },
+  "__v": 0
+}]
