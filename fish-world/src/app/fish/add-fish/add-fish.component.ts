@@ -12,10 +12,10 @@ import { UserService } from 'src/app/user/user.service';
 export class AddFishComponent {
 
   form = this.fb.group({
-    name: ['', [Validators.required]],
+    name: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
     image: ['', [Validators.required]],
-    type: ['', [Validators.required]],
-    description: ['', [Validators.required]],
+    type: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+    description: ['', Validators.compose([Validators.required, Validators.minLength(20)])],
   })
 
   constructor(private api: AppService, private router: Router, private userService: UserService, private fb: FormBuilder) { }
@@ -24,9 +24,8 @@ export class AddFishComponent {
     if (this.form.invalid) {
       return
     }
-    const { name, image,
-      type, description } = this.form.value;
-const userId: string = this.userService.isUserId
+    const { name, image, type, description } = this.form.value;
+    const userId: string = this.userService.isUserId
     this.api
       .createPostFish(name!, image!, type!, description!, userId!)
       .subscribe(() => {

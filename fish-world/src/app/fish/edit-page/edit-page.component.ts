@@ -19,10 +19,10 @@ export class EditPageComponent implements OnInit {
   };
 
   form = this.fb.group({
-    name: ['', []],
-    image: ['', []],
-    type: ['', []],
-    description: ['', []],
+    name: ['', Validators.compose([Validators.required, Validators.minLength(2)])],
+    image: ['', [Validators.required]],
+    type: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+    description: ['', Validators.compose([Validators.required, Validators.minLength(20)])],
   })
 
   constructor(private api: AppService,
@@ -33,7 +33,6 @@ export class EditPageComponent implements OnInit {
   ngOnInit(): void {
 
     this.activeRouter.params.subscribe((data)=>{
-      
       
       const id = data['fishId'];
       this.api.getCurrentFish(id).subscribe((fish)=>{
@@ -59,10 +58,8 @@ export class EditPageComponent implements OnInit {
     console.log({DETAILSVALUE: this.detailsFish});
     
     
-    const { name, image,
-      type, description } = this.form.value;
-    
-      const fishId = this.fish._id;
+    const { name, image, type, description } = this.form.value;
+    const fishId = this.fish._id;
 
      console.log({'DETAIL_FISH': this.form.value});
      console.log({"API_FISH": fishId});

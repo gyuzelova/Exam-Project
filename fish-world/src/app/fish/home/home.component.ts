@@ -9,19 +9,19 @@ import { Fish } from 'src/app/types/post';
 })
 export class HomeComponent implements OnInit {
 
-  fishPost: Fish[]=[];
+  fishPost: Fish[] = [];
 
-constructor(private api: AppService) {}
-ngOnInit(): void {
-  this.api.getFishs().subscribe({
-next: (data) => {
-  this.fishPost = data;
-},
-error: (err) => {
-  console.log(err);
-  
+  constructor(private api: AppService) { }
+  ngOnInit(): void {
+    this.api.getFishs().subscribe({
+      next: (data) => {
+        this.fishPost = data;
+      },
+      error: (err) => {
+        console.log(err);
+
+      }
+    })
   }
-})
-}
 
 }
