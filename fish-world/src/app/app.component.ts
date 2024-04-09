@@ -7,7 +7,7 @@ import { ErrorComponent } from './core/error/error.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fish-world';
+  title = 'Fish world';
 //   constructor(public error: ErrorComponent) {}
 // @Input('message') message = this.error.errorMsg;
 }

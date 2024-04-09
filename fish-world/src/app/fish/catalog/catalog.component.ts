@@ -8,21 +8,21 @@ import { Fish } from 'src/app/types/post';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent implements OnInit {
-  fishPost: Fish[]=[];
-  
-  constructor(private api: AppService) {}
+  fishPost: Fish[] = [];
+
+  constructor(private api: AppService) { }
 
   ngOnInit(): void {
     this.api.getAllFishs().subscribe({
-  next: (data) => {
-    this.fishPost = data;
-    console.log(this.fishPost);
-    
-  },
-  error: (err) => {
-    console.log(err);
-    
-    }
-  })
+      next: (data) => {
+        this.fishPost = data;
+        console.log(this.fishPost);
+
+      },
+      error: (err) => {
+        console.log(err);
+
+      }
+    })
   }
 }

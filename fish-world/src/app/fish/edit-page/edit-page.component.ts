@@ -19,10 +19,10 @@ export class EditPageComponent implements OnInit {
   };
 
   form = this.fb.group({
-    name: ['', []],
-    image: ['', []],
-    type: ['', []],
-    description: ['', []],
+    name: ['', [Validators.required], Validators.minLength(2)],
+    image: ['', [Validators.required, Validators.pattern('/^https?:\/\//')]],
+    type: ['', [Validators.required], Validators.minLength(3)],
+    description: ['', [Validators.required], Validators.minLength(20)],
   })
 
   constructor(private api: AppService,
@@ -32,12 +32,12 @@ export class EditPageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.activeRouter.params.subscribe((data)=>{
-      
-      
+    this.activeRouter.params.subscribe((data) => {
+
+
       const id = data['fishId'];
-      this.api.getCurrentFish(id).subscribe((fish)=>{
-         this.fish = fish;
+      this.api.getCurrentFish(id).subscribe((fish) => {
+        this.fish = fish;
         this.detailsFish = {
           name: fish.name,
           image: fish.image,
@@ -55,19 +55,19 @@ export class EditPageComponent implements OnInit {
 
     this.detailsFish = this.form.value as DetailsFish
 
-    console.log(({FORMVALUE: this.form.value}));
-    console.log({DETAILSVALUE: this.detailsFish});
-    
-    
+    console.log(({ FORMVALUE: this.form.value }));
+    console.log({ DETAILSVALUE: this.detailsFish });
+
+
     const { name, image,
       type, description } = this.form.value;
-    
-      const fishId = this.fish._id;
 
-     console.log({'DETAIL_FISH': this.form.value});
-     console.log({"API_FISH": fishId});
-    
-     this.api
+    const fishId = this.fish._id;
+
+    console.log({ 'DETAIL_FISH': this.form.value });
+    console.log({ "API_FISH": fishId });
+
+    this.api
       .updatePostFish(fishId!, name!, image!, type!, description!)
       .subscribe(() => {
         this.router.navigate(['/catalog'])

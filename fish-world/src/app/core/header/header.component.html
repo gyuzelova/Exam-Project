@@ -9,7 +9,7 @@
         </div>
         <div *ngIf="isLoggedIn" class="user" >
             <a class="nav-link" routerLink="/create">Create Post</a>
-            <a class="nav-link" routerLink="/profile">Profile</a>
+            <a class="nav-link" routerLink="/profile/:userId">Profile</a>
             <a class="nav-link" (click)="logout()" routerLink="/logout">Logout</a>
            
         </div>

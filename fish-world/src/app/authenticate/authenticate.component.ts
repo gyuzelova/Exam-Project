@@ -12,29 +12,29 @@ export class AuthenticateComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) { }
   ngOnInit(): void {
-this.userService.getUser().subscribe({
-  
+    this.userService.getUser().subscribe({
+
       next: () => {
         this.isAuthenticating = false;
-       
+
       },
       error: () => {
         this.isAuthenticating = false;
         this.router.navigate(['/404'])
       },
       complete: () => {
-        if(!this.userService.isLogged){
-          this.isAuthenticating = false; 
+        if (!this.userService.isLogged) {
+          this.isAuthenticating = false;
           this.router.navigate(['/login'])
         }
-        
-          this.isAuthenticating = false; 
-           this.router.navigate(['/home'])
-       
-      
+
+        this.isAuthenticating = false;
+        this.router.navigate(['/home'])
+
+
       }
     });
 
   }
-  
+
 }

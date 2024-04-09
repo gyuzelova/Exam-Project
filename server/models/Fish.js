@@ -15,13 +15,13 @@ const fishSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Type is required!'],
         minLength: [3, 'Type should be longer than 3 characters!'],
-        maxLength: [20, 'Type should be shorts than 20 characters!'],
+        maxLength: [10, 'Type should be shorts than 20 characters!'],
        // match: /^https?:\/\//
     },
     description: {
         type: String,
         required: [true, 'Description is required!'],
-        minLength: [9, 'Description should be longer than 9 characters!'],
+        minLength: [20, 'Description should be longer than 9 characters!'],
        
     },
     likedList: [{

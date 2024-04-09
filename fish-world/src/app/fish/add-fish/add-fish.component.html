@@ -11,6 +11,11 @@
             placeholder="name"
             formControlName="name"
             />
+            <ng-container *ngIf="form.get('name')?.touched">
+                <p class="error" style="color: red;" *ngIf="form.get('name')?.errors?.['required']">
+                  Name  is required!
+                </p>
+              </ng-container>
 
             <label>Image</label>
             <input id="img-url"
@@ -20,6 +25,12 @@
              placeholder="Image" 
              formControlName="image"/>
             
+             <ng-container *ngIf="form.get('image')?.touched">
+                <p class="error" style="color: red;" *ngIf="form.get('image')?.errors?.['required']">
+                  Image is required!
+                </p>
+              </ng-container>
+
             <label>Fish Type:</label>
             <input  class="field_class" 
             name="type" 
@@ -27,13 +38,26 @@
             formControlName="type"
             />
 
+            <ng-container *ngIf="form.get('type')?.touched">
+                <p class="error" style="color: red;" *ngIf="form.get('type')?.errors?.['required']">
+                  Type is required!
+                </p>
+              </ng-container>
+
             <label>Description:</label>
             <textarea  class="field_class" 
             name="description" 
             placeholder="description"
             formControlName="description"
             ></textarea>
-            <button class="submit_class" type="submit">Create</button>
+
+            <ng-container *ngIf="form.get('description')?.touched">
+                <p class="error" style="color: red;" *ngIf="form.get('description')?.errors?.['required']">
+                  Description is required!
+                </p>
+              </ng-container>
+
+            <button class="submit_class" [disabled]="form.invalid" type="submit">Create</button>
 
         </div>
 

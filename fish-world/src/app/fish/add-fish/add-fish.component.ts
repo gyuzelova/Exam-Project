@@ -24,16 +24,12 @@ export class AddFishComponent {
     if (this.form.invalid) {
       return
     }
-    const { name, image,
-      type, description } = this.form.value;
-const userId: string = this.userService.isUserId
+    const { name, image, type, description } = this.form.value;
+    const userId: string = this.userService.isUserId
     this.api
       .createPostFish(name!, image!, type!, description!, userId!)
       .subscribe(() => {
         this.router.navigate(['/catalog'])
       });
-
-
   }
-
 }

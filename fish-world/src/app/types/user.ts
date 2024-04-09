@@ -5,39 +5,37 @@ export interface User {
     password: string,
     createPost: string[],
     __v: number
-    
+
 }
 
 export interface UserAuth {
     _id: string,
     email: string,
-    password: string, 
-    gender: string, 
-    createPost: string[]
+    token: string,
 }
 
-export interface UserProfil{
+export interface UserProfil {
     _id: string,
     email: string,
     gender: string,
-    password: string,  
+    password: string,
     createPost: string[],
 }
-export interface UserProfilData{
+export interface UserProfilData {
     _id: string,
     email: string,
     gender: string,
-    password: string,  
+    password: string,
     createPost: string[],
-    fishs:[ 
+    fishs: [
         {
-        _id: string,
-        name: string;
-        image: string;
-        type: string;
-        description: string;
-        owner: string[];
-        likedList: string[];
-    }
-]
+            _id: string,
+            name: string;
+            image: string;
+            type: string;
+            description: string;
+            owner: string[];
+            likedList: string[];
+        }
+    ]
 }

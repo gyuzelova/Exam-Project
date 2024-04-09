@@ -11,9 +11,9 @@ import { UserService } from 'src/app/user/user.service';
 })
 export class DetailsComponent implements OnInit {
   fish = {} as Fish;
-  userId : string ='';
-  ownerId : string[] =[];
-  likeArray : string[] = []
+  userId: string = '';
+  ownerId: string[] = [];
+  likeArray: string[] = []
 
   constructor(private api: AppService,
     private activeRouter: ActivatedRoute,
@@ -23,21 +23,22 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     if (!this.isLoggedIn) {
       this.router.navigate(['/login'])
+      return
     }
     this.activeRouter.params.subscribe((data) => {
       const id = data['fishId'];
-     
+
       this.api.getCurrentPostFish(id).subscribe((fish) => {
         this.fish = fish;
         this.ownerId.push(fish.owner[0]);
         this.likeArray = fish.likedList.slice()
         console.log(this.fish);
-        
+
       })
     });
 
   }
-  
+
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
@@ -46,9 +47,9 @@ export class DetailsComponent implements OnInit {
     return this.likeArray.length || 0;
   }
 
-   isLikedUser(): boolean {
-     return this.likeArray.includes(this.userService.isUserId)
-   }
+  isLikedUser(): boolean {
+    return this.likeArray.includes(this.userService.isUserId)
+  }
 
   isOwner(): boolean {
     return this.ownerId.join() === this.userService.isUserId ? true : false;
