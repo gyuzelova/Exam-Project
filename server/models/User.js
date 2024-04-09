@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Email is required!'],
         unique: true,
-        minLength: [10, 'Email should be at least 10 characters'],
+        minLength: [9, 'Email should be at least 9 characters'],
     },
     gender:{type: String,
     required: [true, 'Gender is required!'],
@@ -23,14 +23,6 @@ const userSchema = new mongoose.Schema({
     }]
 });
 
-
-
-userSchema.virtual('rePassword')
-    .set(function (value) {
-        if (value !== this.password) {
-            throw new MongooseError('Password missmatch!');
-        }
-    });
 
 const User = mongoose.model('User', userSchema);
 

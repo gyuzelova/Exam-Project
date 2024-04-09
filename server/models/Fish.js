@@ -21,7 +21,7 @@ const fishSchema = new mongoose.Schema({
     description: {
         type: String,
         required: [true, 'Description is required!'],
-        minLength: [9, 'Description should be longer than 9 characters!'],
+        minLength: [20, 'Description should be longer than 20 characters!'],
        
     },
     likedList: [{
