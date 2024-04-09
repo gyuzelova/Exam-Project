@@ -13,10 +13,10 @@
             formControlName="email"
             />
             <ng-container *ngIf="form.get('email')?.touched">
-                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                <p class="error" style="color: red;" *ngIf="form.get('email')?.errors?.['required']">
                   Email is required!
                 </p>
-                <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+                <p class="error" style="color: red;" *ngIf="form.get('email')?.errors?.['email']">
                   Email is not valid!
                 </p>
               </ng-container>
@@ -31,7 +31,7 @@
             />
 
             <ng-container *ngIf="form.get('password')?.touched">
-                <p class="error" *ngIf="form.get('password')?.errors?.['password']">
+                <p class="error" style="color: red;" *ngIf="form.get('password')?.errors?.['password']">
                   Email is required!
                 </p>
               </ng-container>

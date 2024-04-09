@@ -12,20 +12,18 @@ import { ActivatedRoute } from '@angular/router';
 export class ProfilComponent implements OnInit {
   userdata = {} as UserProfilData;
   user = {} as UserProfil;
-  fishPost: Fish[]=[];
+  fishPost: Fish[] = [];
   profilLogo: string = ""
-  constructor(private userService: UserService,  private activeRouter: ActivatedRoute) { }
+  constructor(private userService: UserService, private activeRouter: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    this.activeRouter.params.subscribe((user) => {
-      const id = user['fishId'];
+    const id = this.userService.isUserId
+    this.userService.getProfileData(id).subscribe((userData) => {
+      console.log({ userData: userData });
+      this.userdata = userData;
+      this.fishPost = userData.fishs
 
-      this.userService.getProfileData(id).subscribe((userData) => {
-        console.log({ userData: userData });
-        this.userdata = userData;
-        this.fishPost = userData.fishs
-      })
     })
   }
   profilImage(): string {
@@ -43,12 +41,12 @@ export class ProfilComponent implements OnInit {
   fishArray() {
     this.fishPost = this.userdata.fishs
     console.log(this.fishPost);
-    
-   return this.fishPost
-    
+
+    return this.fishPost
+
   }
 
-  
+
 
 
   // currentUserId(): string {

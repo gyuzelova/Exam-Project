@@ -15,7 +15,7 @@ export class RegisterComponent {
     gender: ['', [Validators.required]],
     passGroup: this.fb.group(
       {
-        password: ['', [Validators.required]],
+        password: ['', [Validators.required, Validators.minLength(4)]],
         rePassword: ['', [Validators.required]],
       },
       {
@@ -32,12 +32,12 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router
-  ) {}
+  ) { }
 
   register(): void {
     if (this.form.invalid) {
       console.log('Form is invalid');
-      
+
       return;
     }
 
@@ -46,14 +46,12 @@ export class RegisterComponent {
       gender,
       passGroup: { password, rePassword } = {},
     } = this.form.value;
-console.log({'FORMVALUE':  this.form.value});
-
+    console.log({ 'FORMVALUE': this.form.value });
+    this.form.reset()
     this.userService
-      .register( email!, gender!,  password!, rePassword!)
+      .register(email!, gender!, password!, rePassword!)
       .subscribe(() => {
-        console.log('navigate work');
-        console.log(email!,gender!,  password!, rePassword!);
-
+        console.log(email!, gender!, password!, rePassword!);
         this.router.navigate(['/home']);
       });
   }

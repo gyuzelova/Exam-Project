@@ -11,10 +11,10 @@
             formControlName="email"
             />
             <ng-container *ngIf="form.get('email')?.touched">
-                <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+                <p class="error" style="color: red;" *ngIf="form.get('email')?.errors?.['required']">
                   Email is required!
                 </p>
-                <p class="error" *ngIf="form.get('email')?.errors?.['email']">
+                <p class="error" style="color: red;" *ngIf="form.get('email')?.errors?.['email']">
                   Email is not valid!
                 </p>
               </ng-container>
@@ -44,7 +44,7 @@
               </div>
              
               <ng-container *ngIf="form.get('gender')?.touched">
-                <p class="error" *ngIf="form.get('gender')?.errors?.['required']">
+                <p class="error" style="color: red;" *ngIf="form.get('gender')?.errors?.['required']">
                   Gender is required!
                 </p>
                
@@ -71,12 +71,18 @@
 
                 <ng-container *ngIf="passGroup?.get('rePassword')?.touched">
                     <p
-                      class="error"
+                      class="error" style="color: red;"
                       *ngIf="passGroup?.errors?.['matchPasswordsValidator'] || 
                       passGroup?.get('rePassword')?.errors?.['required']"
                     >
                       Passwords does`t match!
                     </p>
+                    <p
+                    class="error" style="color: red;"
+                    *ngIf=" passGroup?.get('password')?.errors?.['minLength']"
+                  >
+                    Passwords does`t match!
+                  </p>
                   </ng-container>
             </ng-container>
            

@@ -11,9 +11,7 @@ export interface User {
 export interface UserAuth {
     _id: string,
     email: string,
-    password: string, 
-    gender: string, 
-    createPost: string[]
+    token: string,
 }
 
 export interface UserProfil{

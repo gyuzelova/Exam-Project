@@ -10,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent {
   form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
+    email: ['', Validators.compose([Validators.required, Validators.email])],
     password: ['', [Validators.required]],
   });
 
@@ -22,7 +22,7 @@ export class LoginComponent {
     }
 
     const { email, password } = this.form.value;
-
+    this.form.reset()
     this.userService
     .login(email!, password!)
     .subscribe(() => {
