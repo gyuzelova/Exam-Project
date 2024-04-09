@@ -1,28 +1,31 @@
 const router = require('express').Router();
 const fishService = require('../services/fishService');
 
-const {isAuth} = require('../middlewares/authMiddleware')
+const { isAuth } = require('../middlewares/authMiddleware')
 
 router.get('/', async (req, res) => {
     try {
         const fish = await fishService.getLatest().lean();
-        res.status(200).json(fish) // if have problem my be object must be ({fish)}   
+        res.status(200).json(fish)
     } catch (err) {
-        res.status(200).send(err.message || err)
+        res.status(404).json(err.message || err)
     }
 });
-
-
-
 
 router.get('/catalog', async (req, res) => {
     try {
         const fish = await fishService.getAll().lean();
         res.status(200).json(fish)
     } catch (err) {
-        res.status(200).send(err.message || err)
+        res.status(404).json(err.message || err)
     }
 });
+
+router.get('/404', (req, res) => {
+    res.status(404)
+});
+
+module.exports = router;
 
 
 // router.get('/search', async (req, res) => {
@@ -40,8 +43,3 @@ router.get('/catalog', async (req, res) => {
 //     res.render('search', { fish, name });
 // });
 
-router.get('/404', (req, res) => {
-    res.status(404)
-});
-
-module.exports = router;

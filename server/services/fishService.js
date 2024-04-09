@@ -13,7 +13,7 @@ exports.getOne = (fishId) => Fish.findById(fishId);
 
 exports.getOneDetailed = (fishId) => Fish.findById(fishId).populate('owner');
 
-exports.edit = (fishId, fishData) => Fish.findByIdAndUpdate(fishId, fishData, { runValidators: true });
+exports.edit = (fishId, fishData) => Fish.findByIdAndUpdate(fishId, fishData, { runValidators: true, context: 'query' });
 
 exports.delete = (fishId) => Fish.findByIdAndDelete(fishId);
 
@@ -47,6 +47,5 @@ exports.liked = async (fishId, userId) => {
     fish.likedList.push(userId);
     await fish.save();
 }
-
 
 
