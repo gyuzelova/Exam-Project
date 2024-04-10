@@ -9,14 +9,11 @@ import { ErrorService } from './error.service';
 })
 export class ErrorComponent implements OnInit {
   errorMsg = '';
- 
- 
-
   constructor(private errorService: ErrorService) { }
 
   ngOnInit(): void {
     this.errorService.apiError$.subscribe((err: any) => {
-      this.errorMsg = err?.error.text || '';
+      this.errorMsg = err?.error || '';
       setTimeout(()=>{
         this.errorMsg= ''}, 5000);
     });

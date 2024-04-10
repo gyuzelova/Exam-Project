@@ -8,14 +8,10 @@ import { FishModule } from './fish/fish.module';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { AppInterceptor } from './app.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthenticateComponent,
-
-
   ],
   imports: [
     BrowserModule,
