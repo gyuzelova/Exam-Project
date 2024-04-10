@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AppService } from 'src/app/app.service';
+import { AppService } from 'src/app/fish/app.service';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({

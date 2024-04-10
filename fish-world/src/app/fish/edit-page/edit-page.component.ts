@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppService } from 'src/app/app.service';
+import { AppService } from 'src/app/fish/app.service';
 import { DetailsFish, Fish } from 'src/app/types/post';
 
 @Component({
