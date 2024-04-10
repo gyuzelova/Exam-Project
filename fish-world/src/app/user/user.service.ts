@@ -14,17 +14,10 @@ export class UserService implements OnDestroy{
   KEY = '[auth]';
   userSubscription: Subscription;
 
-  get isLogged(): boolean {
-    return !!this.user;
-  }
-  getToken() {
-    return localStorage.getItem('token')
-  }
-  get isUserId(): string {
-    return this.user?._id || '';
-  }
+ 
 
   constructor(private http: HttpClient) {
+    
     const storedUser = localStorage.getItem(this.KEY);
     console.log(storedUser);
     
@@ -37,6 +30,18 @@ export class UserService implements OnDestroy{
     });
   }
 
+  get isLogged(): boolean {
+    return !!this.user;
+    
+  }
+  getToken() {
+    return localStorage.getItem(this.KEY)
+  }
+  get isUserId(): string {
+    console.log(this.user?._id);
+    return this.user?._id || '';
+  }
+
   login(email: string, password: string) {
     return this.http
       .post<UserAuth>('/api/login', { email, password })
@@ -44,7 +49,7 @@ export class UserService implements OnDestroy{
         this.user$$.next(user);
         console.log(user);
         if (user?.token) {
-          localStorage.setItem(this.KEY, JSON.stringify(this.user?.token));
+          localStorage.setItem(this.KEY, JSON.stringify(user));
         }
       })
       )
@@ -67,7 +72,7 @@ export class UserService implements OnDestroy{
       .pipe(tap((user) => {
         this.user$$.next(user)
         if (user) {
-          localStorage.setItem(this.KEY, JSON.stringify(this.user?.token))
+          localStorage.setItem(this.KEY, JSON.stringify(user))
         }
       }
       ));

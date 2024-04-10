@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { AppService } from 'src/app/fish/app.service';
 import { Fish } from 'src/app/types/post';
 
 @Component({

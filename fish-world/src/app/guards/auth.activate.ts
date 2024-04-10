@@ -8,7 +8,7 @@ import {
 
 import { Observable } from 'rxjs';
 import { UserService } from '../user/user.service';
-import { AppService } from '../app.service';
+import { AppService } from '../fish/app.service';
 
 
 @Injectable({ providedIn: 'root' })
