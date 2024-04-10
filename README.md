@@ -26,9 +26,9 @@ Guest users will have access to the Home Page, the Catalog and the authenticatio
 * path: rescource/fish-world
 
 ## Test Credentials
-* _user with created posts:_
-  - username: tanya@gmail.com
-  - password:  123456
+* _user without created posts:_
+  - username: cici@gmail.com
+  - password:  11111
 * _user with created posts:_
   - username: gogo@gmail.com
-  - password:  123456
+  - password:  11111
