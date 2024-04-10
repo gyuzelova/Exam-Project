@@ -19,6 +19,8 @@ export class ProfilComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.userService.isUserId
+    console.log(id);
+
     this.userService.getProfileData(id).subscribe((userData) => {
       console.log({ userData: userData });
       this.userdata = userData;
@@ -36,18 +38,24 @@ export class ProfilComponent implements OnInit {
   }
 
   ifHasPosts(): boolean {
+    const rating = this.fishPost
     return this.fishPost?.length === 0 ? true : false
   }
-  fishArray() {
-    this.fishPost = this.userdata.fishs
-    console.log(this.fishPost);
 
-    return this.fishPost
-
+  getRatingCount(): string {
+    const rating = this.fishPost;
+    rating.sort((a, b) => b.likedList.length - a.likedList.length);
+    const mostPopularPost = rating[0]?.likedList.length
+    return String(mostPopularPost) || "0"
   }
 
-
-
+  
+  // fishArray() {
+  //   console.log(this.fishPost);
+  //   this.fishPost = this.userdata.fishs;
+  //   console.log(this.fishPost);
+  //   return this.fishPost;
+  // }
 
   // currentUserId(): string {
   //   return this.userService.isUserId;
