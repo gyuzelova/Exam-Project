@@ -15,7 +15,15 @@ exports.getOneDetailed = (fishId) => Fish.findById(fishId).populate('owner');
 
 exports.edit = (fishId, fishData) => Fish.findByIdAndUpdate(fishId, fishData, { runValidators: true, context: 'query' });
 
-exports.delete = (fishId) => Fish.findByIdAndDelete(fishId);
+exports.delete = async (fishId) => {
+
+   const deletedFish = await Fish.findByIdAndDelete(fishId);
+   const userId = deletedFish.owner
+    const user = await User.findById(userId);
+    const i  = user.createPost.indexOf(fishId)
+    user.createPost.splice(i, 1);
+    await user.save()
+};
 
 exports.search = (name) => {
     let surchName = '';

@@ -5,7 +5,8 @@
             <img src="{{profilImage()}}">
             <p>User: {{userdata.email}} </p>
             <p>Total Created Posts: {{userdata.createPost}} </p>  
-            <p class="rating">Rating: {{getRatingCount()}} <img src="../../../assets/star.png" alt="star"></p>
+            <p class="rating">Rating: {{getRatingCount()}} Likes  
+            </p>
         </article>
     </div>
     </section>
@@ -18,7 +19,7 @@
                 <img src="{{fish.image}}">
                 <p>Name: {{fish.name}}</p>
                 <p>Type: {{fish.type}} </p>
-                <a class="details-btn" routerLink="/details/">Details</a>
+                <a class="details-btn" routerLink="/details/{{fish._id}}">Details</a>
             </article>
         </div>
     </section>

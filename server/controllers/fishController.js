@@ -57,8 +57,8 @@ router.put('/edit/:fishId', isAuth, async (req, res) => {
 
 });
 
-router.delete('/delete/:fishId', async (req, res) => {
-
+router.delete('/delete/:fishId', isAuth, async (req, res) => {
+  
     try {
         const fish = await fishService.delete(req.params.fishId);
         console.log(fish);

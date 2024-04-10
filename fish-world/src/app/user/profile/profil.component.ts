@@ -44,8 +44,8 @@ export class ProfilComponent implements OnInit {
 
   getRatingCount(): string {
     const rating = this.fishPost;
-    rating.sort((a, b) => b.likedList.length - a.likedList.length);
-    const mostPopularPost = rating[0]?.likedList.length
+    const mostPopularPost =rating.reduce((acum, currentValue) => acum + Number(currentValue.likedList.length), 0);
+    // const mostPopularPost = rating[0]?.likedList.length
     return String(mostPopularPost) || "0"
   }
 
